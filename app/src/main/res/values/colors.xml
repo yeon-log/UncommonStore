@@ -7,4 +7,18 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- 기본 테마 다홍색 -->
+    <color name="cherry_red">#D32D1D</color>
+
+    <!-- 배경 회색 -->
+    <color name="background_gray">##F1F1F1</color>
+
+    <!-- 글씨 연한 회색 -->
+    <color name="font_gray">#A9A39E</color>
+
+    <!--글씨 진한 검정-->
+    <color name="font_black">#3B3B3B</color>
+
+
 </resources>
