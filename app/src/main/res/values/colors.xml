@@ -12,7 +12,7 @@
     <color name="cherry_red">#D32D1D</color>
 
     <!-- 배경 회색 -->
-    <color name="background_gray">##F1F1F1</color>
+    <color name="background_gray">#F1F1F1</color>
 
     <!-- 글씨 연한 회색 -->
     <color name="font_gray">#A9A39E</color>
