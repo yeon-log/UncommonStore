@@ -12,14 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UncommonStore"
         tools:targetApi="31">
+
+        <!-- 심지연: 스플래시 화면 맨 처음 뜨도록 수정 -->
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Design.Light.NoActionBar" > <!-- 스플래시 화면은 액션바 안보이도록 -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
 
             <meta-data
                 android:name="android.app.lib_name"
