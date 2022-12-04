@@ -1,9 +1,8 @@
-package com.example.uncommonstore
+package com.example.uncommonstore.member
 
 import androidx.multidex.MultiDexApplication
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 class MyApplication: MultiDexApplication() {

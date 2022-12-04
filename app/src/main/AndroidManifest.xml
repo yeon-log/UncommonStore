@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UncommonStore"
         tools:targetApi="31"
-        android:name=".MyApplication">
+        android:name=".member.MyApplication">
 
         <!-- 심지연: 스플래시 화면 맨 처음 뜨도록 수정 -->
         <activity
@@ -37,7 +37,7 @@
         </activity>
 
         <activity
-            android:name=".AuthActivity"
+            android:name=".member.AuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

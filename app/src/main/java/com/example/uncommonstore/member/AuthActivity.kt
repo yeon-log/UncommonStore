@@ -1,4 +1,4 @@
-package com.example.uncommonstore
+package com.example.uncommonstore.member
 
 import android.os.Bundle
 import android.util.Log
@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.example.uncommonstore.R
 import com.example.uncommonstore.databinding.ActivityAuthBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -126,6 +127,7 @@ class AuthActivity : AppCompatActivity() {
         if(mode === "login"){
             binding.run {
                 authMainTextView.text = "${MyApplication.email} 님 반갑습니다."
+
                 logoutBtn.visibility= View.VISIBLE
                 goSignInBtn.visibility= View.GONE
                 googleLoginBtn.visibility= View.GONE
