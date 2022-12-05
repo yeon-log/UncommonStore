@@ -20,7 +20,7 @@ class ProductAddActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         db = AppDatabase.getInstance(this)!!
-        productDao = db.getProductList()
+        productDao = db.ProductDao()
 
         binding.btnCompletion.setOnClickListener{
             insertProduct()
@@ -37,7 +37,7 @@ class ProductAddActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT).show()
         }else{
             Thread{
-                productDao.insertProduct(ProductEntity(null, productName, productPrice))
+                //productDao.insertProduct(ProductEntity(null, productName, productPrice,0,"","내용"))
                 runOnUiThread{
                     Toast.makeText(this, "추가되었습니다.",
                         Toast.LENGTH_SHORT).show()

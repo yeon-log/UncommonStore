@@ -4,9 +4,12 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
-data class ProductEntity (
-    @PrimaryKey(autoGenerate = true) var id : Int? = null,
-    @ColumnInfo(name="productName") val productName : String,
-    @ColumnInfo(name="productPrice") val productPrice : String
-)
+@Entity(tableName="product")
+data class ProductEntity(
+    @PrimaryKey(autoGenerate = true) var prodId: Int? = null,
+    @ColumnInfo(name="prodName") val prodName: String,
+    @ColumnInfo(name="prodPrice") val prodPrice: String,
+    @ColumnInfo(name="prodStock") val prodStock: Int,
+    @ColumnInfo(name="prodImage") val prodImage: String,
+    @ColumnInfo(name="prodContent") val prodContent: String
+    )

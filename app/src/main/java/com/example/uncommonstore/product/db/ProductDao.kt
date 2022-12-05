@@ -6,13 +6,13 @@ import androidx.room.Query
 
 @Dao
 interface ProductDao {
-    @Query("SELECT * FROM ProductEntity")
+    @Query("SELECT * FROM product")
     fun getProductList() : List<ProductEntity>
 
     @Insert
-    fun insertProduct(product : ProductEntity)
+    fun insertProduct(product : List<ProductEntity>)
 
-    @Query("SELECT count(*) FROM ProductEntity")
+    @Query("SELECT count(*) FROM product")
     fun getProductCount() : Int
 
 }

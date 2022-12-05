@@ -3,8 +3,10 @@ package com.example.uncommonstore.product
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.uncommonstore.R
 import com.example.uncommonstore.databinding.ActivityProductListBinding
 import com.example.uncommonstore.db.AppDatabase
 import com.example.uncommonstore.product.db.ProductDao
@@ -33,19 +35,13 @@ class ProductListActivity : AppCompatActivity() {
         }
 
         db = AppDatabase.getInstance(this)!!
-        productDao = db.getProductList()
+        productDao = db.ProductDao()
         getAllProductList()
     }
 
     private fun getAllProductList(){
         Thread{
-            //22.12.05 정구현 초기 데이터가 없을 경우 데이터 삽입
-            if(productDao.getProductCount()<=0){
-                setData()
-                productList = ArrayList(productDao.getProductList())
-            } else{
-                productList = ArrayList(productDao.getProductList())
-            }
+            productList = ArrayList(productDao.getProductList())
             setRecyclerView()
         }.start()
     }
@@ -60,39 +56,6 @@ class ProductListActivity : AppCompatActivity() {
 
     }
 
-    private fun setData(){
-        var dataList : MutableList<ProductEntity> = mutableListOf<ProductEntity>()
-        dataList.add(ProductEntity(null,"꿀잠친구_베어춘식이", "39,000"))
-        dataList.add(ProductEntity(null, "윈터어드벤처 눈집게라이언", "39,000"))
-        dataList.add(ProductEntity(null, "안고자는애착바디필로우_라이언", "39,000"))
-        dataList.add(ProductEntity(null, "혀딻은양꼬 슬리퍼", "45,000"))
-        dataList.add(ProductEntity(null,"혀딻은양꼬 페이스 러그", "39,000"))
-        dataList.add(ProductEntity(null, "혀딻은양꼬&뚱꼬 마우스패드", "39,000"))
-        dataList.add(ProductEntity(null,"꿀잠친구_베어춘식이", "39,000"))
-        dataList.add(ProductEntity(null, "윈터어드벤처 눈집게라이언", "39,000"))
-        dataList.add(ProductEntity(null, "안고자는애착바디필로우_라이언", "39,000"))
-        dataList.add(ProductEntity(null, "혀딻은양꼬 슬리퍼", "45,000"))
-        dataList.add(ProductEntity(null,"혀딻은양꼬 페이스 러그", "39,000"))
-        dataList.add(ProductEntity(null, "혀딻은양꼬&뚱꼬 마우스패드", "39,000"))
-        dataList.add(ProductEntity(null,"꿀잠친구_베어춘식이", "39,000"))
-        dataList.add(ProductEntity(null, "윈터어드벤처 눈집게라이언", "39,000"))
-        dataList.add(ProductEntity(null, "안고자는애착바디필로우_라이언", "39,000"))
-        dataList.add(ProductEntity(null, "혀딻은양꼬 슬리퍼", "45,000"))
-        dataList.add(ProductEntity(null,"혀딻은양꼬 페이스 러그", "39,000"))
-        dataList.add(ProductEntity(null, "혀딻은양꼬&뚱꼬 마우스패드", "39,000"))
-        dataList.add(ProductEntity(null,"꿀잠친구_베어춘식이", "39,000"))
-        dataList.add(ProductEntity(null, "윈터어드벤처 눈집게라이언", "39,000"))
-        dataList.add(ProductEntity(null, "안고자는애착바디필로우_라이언", "39,000"))
-        dataList.add(ProductEntity(null, "혀딻은양꼬 슬리퍼", "45,000"))
-        dataList.add(ProductEntity(null,"혀딻은양꼬 페이스 러그", "39,000"))
-        dataList.add(ProductEntity(null, "혀딻은양꼬&뚱꼬 마우스패드", "39,000"))
-        dataList.forEach{data ->
-            productDao.insertProduct(data)
-        }
-    }
-
-    private fun convertImage(){
-    }
     override fun onRestart() {
         super.onRestart()
         getAllProductList()
