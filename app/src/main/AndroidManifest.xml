@@ -16,6 +16,13 @@
         android:theme="@style/Theme.UncommonStore"
         tools:targetApi="31">
         <activity
+            android:name=".payment.CardActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".product.ProductAddActivity"
             android:exported="false">
             <meta-data

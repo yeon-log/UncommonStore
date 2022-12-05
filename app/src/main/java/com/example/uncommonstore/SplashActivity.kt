@@ -7,7 +7,6 @@ import android.os.Handler
 import android.os.Looper
 
 class SplashActivity : AppCompatActivity() {
-    // test
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)

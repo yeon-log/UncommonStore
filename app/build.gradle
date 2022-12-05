@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
-
     //12.04 정구현 room 라이브러리 추가
     id 'kotlin-kapt'
 }
@@ -57,6 +56,11 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:20.4.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
+
+    // 12.05 심지연 추가: indicator 와  ViewPager2 사용 위함
+    //implementation "com.google.android.material:material:material_design_version"
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'me.relex:circleindicator:2.1.6'
 
     //12 04 정구현 room 세팅을 위한 라이브러리 추가
     def room_version = "2.4.3"
