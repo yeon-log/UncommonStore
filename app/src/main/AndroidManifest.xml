@@ -31,15 +31,11 @@
         </activity>
         <activity
             android:name=".product.ProductListActivity"
-            android:exported="true">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity> <!-- 심지연: 스플래시 화면 맨 처음 뜨도록 수정 -->
         <activity
             android:name=".SplashActivity"
@@ -60,7 +56,14 @@
         <activity
             android:name=".member.AuthActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
 
         <!-- FAQ -->

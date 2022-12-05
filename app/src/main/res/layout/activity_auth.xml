@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,11 +11,20 @@
         android:orientation="vertical"
         android:padding="20dp">
 
+        <!-- 테스트 텍스트 -->
         <TextView
             android:id="@+id/authMainTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp" />
+
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="200dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/start_image"
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/logoutBtn"
@@ -27,67 +37,145 @@
             android:textStyle="bold"
             android:visibility="gone" />
 
-        <Button
-            android:id="@+id/goSignInBtn"
+        <!-- 회원 가입 텍스트-->
+        <TextView
+            android:id="@+id/signInTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#FF0000"
             android:text="회원가입"
+            android:textSize="30dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/authEmailEditView"
+            android:layout_width="335dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@color/background_gray"
+            android:hint="\t이메일"
+            android:inputType="textEmailAddress"
+            android:textColorHint="#707070"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/authPasswordEditView"
+            android:layout_width="335dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@color/background_gray"
+            android:hint="\t비밀번호"
+            android:inputType="textPassword"
+            android:textColorHint="#707070"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+        <!-- 회원 가입  비밀번호 확인-->
+        <EditText
+            android:id="@+id/authPasswordCheckEditView"
+            android:layout_width="335dp"
+            android:layout_height="41dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@color/background_gray"
+            android:hint="\t비밀번호 확인"
+            android:inputType="textPassword"
+            android:textColorHint="#707070"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <!-- 회원 가입  가입 버튼, 취소 버튼 -->
+        <LinearLayout
+            android:id="@+id/signInBtns"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/signCancel"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:backgroundTint="#8C8C8C"
+                android:text="취소"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/signBtn"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/cherry_red"
+                android:text="회원 가입"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/cherry_red"
+            android:text="로그인"
             android:textColor="@color/white"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/goSignInBtn"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="3dp"
+            android:background="#00FF0000"
+            android:text="회원가입"
+            android:textColor="@color/font_gray"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+
+
+
+        <TextView
+            android:id="@+id/socialLoginTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="소셜 미디어 계정으로 로그인"
+            android:textAlignment="center"
+            android:textColor="@color/font_gray"
             android:textStyle="bold"
             android:visibility="gone" />
 
         <Button
             android:id="@+id/googleLoginBtn"
-            android:layout_width="match_parent"
+            android:layout_width="290dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:backgroundTint="#FF0000"
-            android:text="구글인증"
-            android:textColor="@color/white"
+            android:backgroundTint="#FFFFFF"
+            android:drawableLeft="@drawable/google_logoxml"
+            android:text="GOOGLE 로그인"
+            android:textColor="@color/font_gray"
             android:textStyle="bold"
             android:visibility="gone" />
 
-        <EditText
-            android:id="@+id/authEmailEditView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="이메일"
-            android:inputType="textEmailAddress"
-            android:visibility="gone" />
-
-        <EditText
-            android:id="@+id/authPasswordEditView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="비밀번호 - 6자 이상"
-            android:inputType="textPassword"
-            android:visibility="gone" />
-
-        <Button
-            android:id="@+id/signBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#FF0000"
-            android:text="가입"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:visibility="gone" />
-
-        <Button
-            android:id="@+id/loginBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#FF0000"
-            android:text="로그인"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:visibility="gone" />
     </LinearLayout>
 
 </ScrollView>
