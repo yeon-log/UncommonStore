@@ -4,6 +4,9 @@ plugins {
     id 'com.google.gms.google-services'
     //12.04 정구현 room 라이브러리 추가
     id 'kotlin-kapt'
+    //12.05 김나형 추가 : 라이브러리 추가
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 
 android {
