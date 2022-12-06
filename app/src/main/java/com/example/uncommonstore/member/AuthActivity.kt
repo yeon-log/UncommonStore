@@ -1,11 +1,13 @@
 package com.example.uncommonstore.member
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.example.uncommonstore.MainActivity
 import com.example.uncommonstore.R
 import com.example.uncommonstore.databinding.ActivityAuthBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -140,7 +142,6 @@ class AuthActivity : AppCompatActivity() {
         //회원 가입에서 취소 버튼을 눌렀을때 로그인 화면으로 이동
         binding.signCancel.setOnClickListener{
             binding.run {
-//                authMainTextView.text = "로그인 화면 테스트"
                 logoutBtn.visibility = View.GONE
                 logoImage.visibility = View.VISIBLE
                 goSignInBtn.visibility = View.VISIBLE
@@ -157,24 +158,24 @@ class AuthActivity : AppCompatActivity() {
         }
 
     }
-
+//    authMainTextView.text = "${MyApplication.email} 님 반갑습니다."
     fun changeVisibility(mode: String){
         if(mode === "login"){//로그인 하였을때 작동 추후에 작성
-            binding.run {
-                authMainTextView.text = "${MyApplication.email} 님 반갑습니다."
-            
-                logoImage.visibility= View.GONE//로고 이미지 비활성화
-                logoutBtn.visibility= View.VISIBLE//로그아웃 버튼 비활성화
-                goSignInBtn.visibility= View.GONE
-                googleLoginBtn.visibility= View.GONE
-                authEmailEditView.visibility= View.GONE
-                authPasswordEditView.visibility= View.GONE
-                authPasswordCheckEditView.visibility = View.GONE
-                signBtn.visibility= View.GONE
-                loginBtn.visibility= View.GONE
-                signInBtns.visibility = View.GONE
-            }
-
+            //로그인 하였을 때 메인 액티비티로 이동
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+//            binding.run {
+//                logoImage.visibility= View.GONE//로고 이미지 비활성화
+//                logoutBtn.visibility= View.VISIBLE//로그아웃 버튼 비활성화
+//                goSignInBtn.visibility= View.GONE
+//                googleLoginBtn.visibility= View.GONE
+//                authEmailEditView.visibility= View.GONE
+//                authPasswordEditView.visibility= View.GONE
+//                authPasswordCheckEditView.visibility = View.GONE
+//                signBtn.visibility= View.GONE
+//                loginBtn.visibility= View.GONE
+//                signInBtns.visibility = View.GONE
+//            }
         }else if(mode === "logout"){//로그아웃 했을때 -> 로그인 화면
             binding.run {
 //                authMainTextView.text = "로그인 화면 테스트"
