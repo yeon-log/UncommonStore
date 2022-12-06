@@ -59,5 +59,12 @@
         android:layout_marginBottom="309dp"
         android:text="FAQ" />
 
+    <Button
+        android:id="@+id/btn_qr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="236dp"
+        android:text="QRCode" />
 
 </RelativeLayout>

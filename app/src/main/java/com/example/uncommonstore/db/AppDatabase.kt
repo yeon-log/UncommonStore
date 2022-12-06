@@ -20,7 +20,7 @@ abstract class AppDatabase : RoomDatabase(){
     abstract fun EventDao() : EventDao
 
     companion object{
-        val databaseName = "product"
+        val databaseName = "db"
         var appDatabase : AppDatabase? = null
         fun getInstance(context: Context):AppDatabase?{
             /*if(appDatabase == null){

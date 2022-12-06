@@ -1,11 +1,15 @@
 package com.example.uncommonstore.product
 
+import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.uncommonstore.databinding.ItemProductBinding
 import com.example.uncommonstore.product.db.ProductEntity
+
+
 
 class ProductRecyclerViewAdapter(private val productList: ArrayList<ProductEntity>)
     : RecyclerView.Adapter<ProductRecyclerViewAdapter.MyViewHolder>(){
@@ -24,8 +28,17 @@ class ProductRecyclerViewAdapter(private val productList: ArrayList<ProductEntit
             Glide.with(context)
                 .load(product.prodImage)
                 .into(binding.imgProductThumbnail)
-        }
 
+            //클릭 이벤트
+            val pos = adapterPosition
+            if(pos!= RecyclerView.NO_POSITION)
+            {
+                itemView.setOnClickListener {
+                    listener?.onItemClick(itemView,product,pos)
+                }
+            }
+
+        }
 
         val root = binding.root
 
@@ -42,7 +55,6 @@ class ProductRecyclerViewAdapter(private val productList: ArrayList<ProductEntit
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(productList[position])
-
     }
 
 
@@ -51,5 +63,15 @@ class ProductRecyclerViewAdapter(private val productList: ArrayList<ProductEntit
         return productList.size
     }
 
+    //클릭이벤트 인터페이스 추가
+    interface OnItemClickListener{
+        fun onItemClick(v:View, data: ProductEntity, pos : Int)
+    }
+
+    private var listener : OnItemClickListener? = null
+
+    fun setOnItemClickListener(listener : OnItemClickListener) {
+        this.listener = listener
+    }
 
 }

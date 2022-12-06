@@ -3,6 +3,7 @@ package com.example.uncommonstore
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.uncommonstore.QRCodeReader.QrReaderActivity
 import com.example.uncommonstore.databinding.ActivityCardBinding
 import com.example.uncommonstore.databinding.ActivityEventListBinding
 import com.example.uncommonstore.databinding.ActivityFaqBinding
@@ -47,6 +48,11 @@ class MainActivity : AppCompatActivity() {
         }
         mainbinding.btnFaq.setOnClickListener{
             val intent = Intent(this, FaqActivity::class.java)
+            startActivity(intent)
+        }
+
+        mainbinding.btnQr.setOnClickListener{
+            val intent = Intent(this, QrReaderActivity::class.java)
             startActivity(intent)
         }
     }
