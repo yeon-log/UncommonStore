@@ -1,23 +1,40 @@
 package com.example.uncommonstore.event
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import com.example.uncommonstore.R
-import kotlinx.android.synthetic.main.custom_list_event.view.*
+import com.bumptech.glide.Glide
+import androidx.recyclerview.widget.RecyclerView
+import com.example.uncommonstore.databinding.CustomListEventBinding
+import com.example.uncommonstore.event.db.EventEntity
 
-class ListViewAdapter(private val items: MutableList<ListViewEvent>): BaseAdapter() {
-    override fun getCount(): Int = items.size
-    override fun getItem(position: Int): ListViewEvent = items[position]
-    override fun getItemId(position: Int): Long = position.toLong()
-    override fun getView(position: Int, view: View?, parent: ViewGroup?): View {
-        var convertView = view
-        if (convertView == null) convertView = LayoutInflater.from(parent?.context).inflate(R.layout.custom_list_event, parent, false)
 
-        val item: ListViewEvent = items[position]
-        convertView!!.image_title.setImageDrawable(item.icon)
+class ListViewAdapter(private val eventList : ArrayList<EventEntity>)
+    : RecyclerView.Adapter<ListViewAdapter.MyViewHolder>(){
+    inner class MyViewHolder(private val binding : CustomListEventBinding):
+        RecyclerView.ViewHolder(binding.root){
+        private val context = binding.root.context
 
-        return convertView
+        fun bind(event:EventEntity){
+            Glide.with(context)
+                .load(event.eventImage)
+                .into(binding.imageTitle)
+        }
+        val root = binding.root
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewAdapter.MyViewHolder {
+        val binding : CustomListEventBinding =
+            CustomListEventBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent, false)
+        return MyViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: MyViewHolder, position : Int){
+        holder.bind(eventList[position])
+    }
+
+    override fun getItemCount(): Int {
+        return eventList.size
     }
 }
