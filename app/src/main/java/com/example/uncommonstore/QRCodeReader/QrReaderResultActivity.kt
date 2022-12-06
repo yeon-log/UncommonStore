@@ -1,9 +1,12 @@
 package com.example.uncommonstore.QRCodeReader
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.uncommonstore.databinding.ActivityQrReaderResultBinding
 import com.example.uncommonstore.db.AppDatabase
+import com.example.uncommonstore.product.ProductDetailActivity
 import com.example.uncommonstore.product.db.ProductDao
 import com.example.uncommonstore.product.db.ProductEntity
 
@@ -19,16 +22,27 @@ class QrReaderResultActivity : AppCompatActivity() {
         binding = ActivityQrReaderResultBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        db = AppDatabase.getInstance(this)!!
-        productDao = db.ProductDao()
-
         val result = intent.getStringExtra("msg") ?: "데이터가 존재하지 않습니다."
-        product = productDao.getProductById(result.toInt())
-        println(product.prodName)
-
-
-
+        println(result.toString())
+        Log.d("logintest","이것은 테스트입니다.")
         setUI(result)// UI를 초기화 합니다.
+
+        db = AppDatabase.getInstance(this)!!
+        val r = Runnable {
+            // 데이터에 읽고 쓸때는 쓰레드 사용
+            productDao = db.ProductDao()
+            product = productDao.getProductById(result.toInt())
+            println(product.prodName)
+            Intent(this@QrReaderResultActivity, ProductDetailActivity::class.java).apply {
+                putExtra("product", product)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }.run { startActivity(this) }
+        }
+        val thread = Thread(r)
+        thread.start()
+
+
+
     }
     private fun setUI(result: String) {
         binding.tvContent.text = result // 넘어온 QR 코드 속 데이터를 텍스트뷰에 설정합니다.
