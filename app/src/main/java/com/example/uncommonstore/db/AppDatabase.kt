@@ -17,7 +17,9 @@ import kotlinx.coroutines.launch
 
 @Database(entities = arrayOf(ProductEntity::class, EventEntity::class, CardEntity::class), version = 1)
 abstract class AppDatabase : RoomDatabase(){
+    //상품 테이블 추가
     abstract fun ProductDao() : ProductDao
+
     //room Event 테이블 추가
     abstract fun EventDao() : EventDao
 
@@ -28,15 +30,8 @@ abstract class AppDatabase : RoomDatabase(){
         val databaseName = "db"
         var appDatabase : AppDatabase? = null
         fun getInstance(context: Context):AppDatabase?{
-            /*if(appDatabase == null){
-                appDatabase = Room.databaseBuilder(context,
-                AppDatabase::class.java,
-                databaseName).build()
-            }*/
-
             if(appDatabase == null){
                 synchronized(AppDatabase::class){
-                    //데이터베이스 인스턴스를 생성하고 해당 인스턴스로 DAO인스턴스의 메서드를 사용하여 데이터베이스와 상호작용
                     appDatabase = Room.databaseBuilder(
                         context.applicationContext,
                         AppDatabase::class.java,
@@ -72,6 +67,7 @@ abstract class AppDatabase : RoomDatabase(){
         }
     }
 }
+
 private val PRODUCT_DATA = arrayListOf(
     ProductEntity(null, "꿀잠친구_베어춘식이", "39,000",0, "https://user-images.githubusercontent.com/70796139/205591848-e9160e4a-0f1d-48a4-a845-2be8e76d183f.png","상품 내용"),
     ProductEntity(null, "윈터어드벤처 눈집게라이언", "39,000",0, "https://user-images.githubusercontent.com/70796139/205591856-614e0193-d788-4402-a182-f5a74782a767.png","상품 내용"),
