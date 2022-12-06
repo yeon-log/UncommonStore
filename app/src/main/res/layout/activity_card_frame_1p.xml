@@ -15,19 +15,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#ffcccc"
-            android:contentDescription="@string/app_name"/>
+            android:contentDescription="@string/app_name" />
 
-        <TextView
-            android:id="@+id/tvName1"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_centerInParent="true"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:text="카드넣을 첫번째 페이지지이ㅣ이"/>
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="114dp"
+            android:layout_marginTop="106dp"
+            android:layout_marginEnd="123dp"
+            android:layout_marginBottom="166dp"
+            android:text="Button" />
 
     </RelativeLayout>
 

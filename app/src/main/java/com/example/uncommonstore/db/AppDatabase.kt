@@ -7,17 +7,22 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.uncommonstore.event.db.EventDao
 import com.example.uncommonstore.event.db.EventEntity
+import com.example.uncommonstore.payment.db.CardDao
+import com.example.uncommonstore.payment.db.CardEntity
 import com.example.uncommonstore.product.db.ProductDao
 import com.example.uncommonstore.product.db.ProductEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = arrayOf(ProductEntity::class, EventEntity::class), version = 1)
+@Database(entities = arrayOf(ProductEntity::class, EventEntity::class, CardEntity::class), version = 1)
 abstract class AppDatabase : RoomDatabase(){
     abstract fun ProductDao() : ProductDao
     //room Event 테이블 추가
     abstract fun EventDao() : EventDao
+
+    // 2022.12.06 심지연 추가: room Card 테이블
+    abstract fun CardDao() : CardDao
 
     companion object{
         val databaseName = "db"

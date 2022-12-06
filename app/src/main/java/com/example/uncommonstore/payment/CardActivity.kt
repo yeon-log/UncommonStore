@@ -1,14 +1,22 @@
 package com.example.uncommonstore.payment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.uncommonstore.R
+import com.example.uncommonstore.databinding.ActivityCardBinding
+import com.example.uncommonstore.db.AppDatabase
+import com.example.uncommonstore.payment.db.CardDao
 import me.relex.circleindicator.CircleIndicator3
 
 class CardActivity : FragmentActivity() {
+
+    private lateinit var binding: ActivityCardBinding
+    private lateinit var db: AppDatabase
+    private lateinit var CardDao: CardDao
 
     private lateinit var mPager: ViewPager2
     private lateinit var pagerAdapter: FragmentStateAdapter
@@ -18,6 +26,13 @@ class CardActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_card)
+
+        binding = ActivityCardBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.btnPaymentTermination.setOnClickListener {
+            val intent = Intent(this, CardAddActivity::class.java)
+            startActivity(intent)
+        }
 
         //ViewPager2
         mPager = findViewById(R.id.viewpager)
