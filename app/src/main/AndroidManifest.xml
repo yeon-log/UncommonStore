@@ -4,6 +4,10 @@
     <!-- 12.03 구영모 추가 인터넷 권한 추가를 위한 코드 -->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- 12.06 김민석 QR코드//카메라 권한 추가 코드 -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:name=".member.MyApplication"
         android:allowBackup="true"
@@ -35,7 +39,6 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-
         </activity> <!-- 심지연: 스플래시 화면 맨 처음 뜨도록 수정 -->
         <activity
             android:name=".SplashActivity"
@@ -56,6 +59,36 @@
         <activity
             android:name=".member.AuthActivity"
             android:exported="true">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <!-- FAQ -->
+        <activity
+            android:name=".faq.FaqActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <!-- QR 결과 -->
+        <activity
+            android:name=".QRCodeReader.QrReaderResultActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <!-- QR Preview -->
+        <activity
+            android:name=".QRCodeReader.QrReaderActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -65,17 +98,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-        <!-- FAQ -->
-        <activity
-            android:name=".faq.FaqActivity"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-
-
     </application>
 
 </manifest>
