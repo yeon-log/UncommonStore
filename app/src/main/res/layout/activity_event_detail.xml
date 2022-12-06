@@ -40,20 +40,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/product_default_item"
-                android:src="@drawable/event_bari"
-                />
+                android:src="@drawable/event_bari" />
 
-
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_event_image2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/event_bear" />
+                app:srcCompat="@drawable/product_default_item"
+                android:src="@drawable/event_bari" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_event_image3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:srcCompat="@drawable/product_default_item"
                 android:src="@drawable/event_bari" />
         </LinearLayout>
     </ScrollView>
