@@ -37,7 +37,6 @@ class CardAddActivity : AppCompatActivity() {
         val cardNum = "$edtCardNum1-$edtCardNum2-$edtCardNum3-$edtCardNum4"
         val cardName = binding.edtCardName.text.toString()
 
-
         if (cardPw.isBlank() || cardCvc.isBlank()
             || cardExpiration.isBlank() || cardNum.isBlank() || cardName.isBlank()
         ) {

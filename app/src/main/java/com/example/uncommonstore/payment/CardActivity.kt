@@ -8,9 +8,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.uncommonstore.R
 import com.example.uncommonstore.databinding.ActivityCardBinding
-import com.example.uncommonstore.databinding.ActivityCardFrame1pBinding
-import com.example.uncommonstore.db.AppDatabase
-import com.example.uncommonstore.payment.db.CardDao
 import me.relex.circleindicator.CircleIndicator3
 
 class CardActivity : FragmentActivity() {

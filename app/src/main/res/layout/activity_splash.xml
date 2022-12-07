@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,9 +9,16 @@
     tools:context=".SplashActivity">
 
     <ImageView
-        android:layout_width="432dp"
-        android:layout_height="327dp"
+        android:layout_width="413dp"
+        android:layout_height="198dp"
         android:layout_gravity="center"
-        app:srcCompat="@drawable/start_image" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.233"
+        app:srcCompat="@drawable/start_image"
+        tools:ignore="MissingConstraints" />
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
