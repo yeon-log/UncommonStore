@@ -41,6 +41,8 @@ android {
     //12.02 구영모 추가
     buildFeatures{
         viewBinding = true
+        // 12.07 김나형 추가
+        dataBinding = true
     }
 }
 
@@ -86,4 +88,6 @@ dependencies {
     implementation "androidx.camera:camera-view:$camerax_version"
     implementation 'com.google.mlkit:barcode-scanning:17.0.2'
 
+    //12.07 김나형 메인을 위한 라이브러리 추가
+    implementation 'com.tbuonomo:dotsindicator:4.2'
 }

@@ -3,11 +3,17 @@ package com.example.uncommonstore
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
 import android.view.MenuItem
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import com.example.uncommonstore.QRCodeReader.QrReaderActivity
-import com.example.uncommonstore.databinding.*
+import com.example.uncommonstore.databinding.ActivityMainBinding
 import com.example.uncommonstore.event.EventListActivity
 import com.example.uncommonstore.faq.FaqActivity
 import com.example.uncommonstore.member.AuthActivity
@@ -17,26 +23,90 @@ import com.example.uncommonstore.product.ProductListActivity
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_navheader.view.*
+import java.text.FieldPosition
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private var isNavigationOpen = false
-    lateinit var mainbinding: ActivityMainBinding
 
+    lateinit var mainbinding: ActivityMainBinding
+    // 텍스트뷰 -> 화면 위치 표시
+    private var dots = arrayOfNulls<TextView>(3)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // binding 초기화
         mainbinding=ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(mainbinding.root)
-
         val header = navigationView.getHeaderView(0)
         header.accountTextView.text="${MyApplication.email}\n님 반갑습니다."
-
         setToolbar()
+
         navigationView.setNavigationItemSelectedListener(this)
 
+        // 프래그먼트 선언
+        var fragment1 = MainOneFragment()
+        var fragment2 = MainTwoFragment()
+        var fragment3 = MainThreeFragment()
 
+        // 리스트에 프래그먼트 등록
+        var fragments = ArrayList<Fragment>()
+        fragments.add(fragment1)
+        fragments.add(fragment2)
+        fragments.add(fragment3)
+
+        // MainPageAdapter에 리스트를 등록
+        var adapter = MainPageAdapter(this, fragments)
+
+        // mainViewPager2에 Adapter 적용
+        mainbinding.mainViewPager2.adapter = adapter
+
+        // 화면 위치 표시 생성
+        dotsIndicator()
+
+        // 화면 변경 시 이벤트 설정
+        mainbinding.mainViewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int){
+                super.onPageSelected(position)
+
+                //화면 위치 표시 색상 설정
+                selectedIndicator(position)
+            }
+        })
+        //mainbindig.dotsIndicator.setViewPager2(mainbinding.mainViewPager2)
+    }
+    // 화면 위치 표시 생성
+    private fun dotsIndicator(){
+        for(i: Int in 0 until 3){
+            dots[i] = TextView(this)
+            dots[i]?.text = Html.fromHtml(("&#9679"), Html.FROM_HTML_MODE_LEGACY)
+            dots[i]?.textSize = 25F
+
+            // 텍스트뷰 레이아웃 설정
+            var params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+
+            // 텍스트튜 간의 거리 조절
+            params.leftMargin = 30
+            // 텍스트뷰 레이아웃 적용
+            dots[i]?.layoutParams = params
+            // 레이아웃에 텍스트뷰 적용
+            mainbinding.dotsLayout.addView(dots[i])
+        }
+    }
+    // 화면 위치 표시 색상 설정
+    private fun selectedIndicator(position: Int){
+        for(i: Int in 0 until 3){
+            // 선택한 위치
+            if(i == position){
+                dots[i]?.setTextColor(ContextCompat.getColor(applicationContext, R.color.cherry_red))
+            }//선택안된거
+            else{
+                dots[i]?.setTextColor(ContextCompat.getColor(applicationContext, R.color.background_gray))
+            }
+        }
     }
 
     // 툴바 사용 설정
@@ -53,7 +123,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // 클릭된 메뉴 아이템의 아이디 마다 when 구절로 클릭시 동작을 설정한다.
         when(item.itemId){
             android.R.id.home->{ // 메뉴 버튼
-
                 drawerLayout.openDrawer(GravityCompat.START)    // 네비게이션 드로어 열기
             }
         }
@@ -120,5 +189,4 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             super.onBackPressed()
         }
     }
-
 }

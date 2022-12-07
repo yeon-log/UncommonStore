@@ -2,10 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <!-- 12.03 구영모 추가 인터넷 권한 추가를 위한 코드 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-
-    <!-- 12.06 김민석 QR코드//카메라 권한 추가 코드 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 12.06 김민석 QR코드//카메라 권한 추가 코드 -->
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -19,6 +18,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UncommonStore"
         tools:targetApi="31">
+        <activity
+            android:name=".MainTwoFragment"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MainThreeFragment"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MainOneFragment"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".payment.CardActivity"
             android:exported="false">
@@ -46,8 +66,7 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-        <!-- 심지연: 스플래시 화면 맨 처음 뜨도록 수정 -->
+        </activity> <!-- 심지연: 스플래시 화면 맨 처음 뜨도록 수정 -->
         <activity
             android:name=".SplashActivity"
             android:exported="true"
@@ -57,6 +76,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -83,32 +103,28 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-        <!-- FAQ -->
+        </activity> <!-- FAQ -->
         <activity
             android:name=".faq.FaqActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-        <!-- QR 결과 -->
+        </activity> <!-- QR 결과 -->
         <activity
             android:name=".QRCodeReader.QrReaderResultActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-        <!-- QR Preview -->
+        </activity> <!-- QR Preview -->
         <activity
             android:name=".QRCodeReader.QrReaderActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-        <!-- Event List -->
+        </activity> <!-- Event List -->
         <activity
             android:name=".event.EventListActivity"
             android:exported="false">
@@ -130,7 +146,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
     </application>
 
 </manifest>
