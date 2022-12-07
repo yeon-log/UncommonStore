@@ -39,12 +39,13 @@ android {
         jvmTarget = '1.8'
     }
     //12.02 구영모 추가
-    viewBinding{
-        enabled = true
+    buildFeatures{
+        viewBinding = true
     }
 }
 
 dependencies {
+
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -59,6 +60,10 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:20.4.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
+
+    //12.05 구영모 추가 네비게이션 툴바를 사용하기 위한 추가
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
 
     // 12.05 심지연 추가: indicator 와  ViewPager2 사용 위함
     //implementation "com.google.android.material:material:material_design_version"

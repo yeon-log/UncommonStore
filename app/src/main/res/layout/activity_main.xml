@@ -1,70 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--parent layout-->
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:background="#fff">
 
-    <TextView
-        android:id="@+id/accountTextView"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00673AB7"
+            app:contentInsetStart="0dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            >
+            <TextView
+                android:id="@+id/MainTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Uncommon Store"
+                android:textStyle="bold"
+                android:textSize="24dp"
+                android:textColor="@color/cherry_red"
+                android:layout_gravity="center"
+                />
+        </androidx.appcompat.widget.Toolbar>
+    </RelativeLayout>
+
+    <!--navigation drawer-->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="visible" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/mainRecyclerView"
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone" />
+        android:layout_gravity="start"
+        app:headerLayout="@layout/main_navheader"
+        app:menu="@menu/main_navigationmenu"
+        />
 
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="로그아웃" />
-
-    <Button
-        android:id="@+id/btn_payment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="63dp"
-        android:layout_marginBottom="513dp"
-        android:text="결제수단" />
-
-    <Button
-        android:id="@+id/btn_product"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="512dp"
-        android:text="상품리스트" />
-
-    <Button
-        android:id="@+id/btn_event"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="392dp"
-        android:text="이벤트" />
-
-    <Button
-        android:id="@+id/btn_faq"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="309dp"
-        android:text="FAQ" />
-
-    <Button
-        android:id="@+id/btn_qr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="236dp"
-        android:text="QRCode" />
-
-</RelativeLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

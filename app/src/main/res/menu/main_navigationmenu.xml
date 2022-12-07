@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/qrcodeIn"
+            android:icon="@drawable/google_logo"
+            android:title="입장"
+            />
+        <item
+            android:id="@+id/qrcodeSearch"
+            android:icon="@drawable/google_logo"
+            android:title="상품 검색"
+            />
+        <item
+            android:id="@+id/product"
+            android:icon="@drawable/google_logo"
+            android:title="상품"
+            />
+        <item
+            android:id="@+id/payment"
+            android:icon="@drawable/google_logo"
+            android:title="결제 수단 관리"
+            />
+
+
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/event"
+            android:icon="@drawable/google_logo"
+            android:title="이벤트"
+            />
+        <item
+            android:id="@+id/faq"
+            android:icon="@drawable/google_logo"
+            android:title="자주 묻는 질문"
+            />
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/google_logo"
+            android:title="로그아웃"
+            />
+
+    </group>
+</menu>
