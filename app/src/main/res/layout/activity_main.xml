@@ -21,6 +21,7 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             >
+
             <TextView
                 android:id="@+id/MainTitleText"
                 android:layout_width="wrap_content"
@@ -31,6 +32,7 @@
                 android:textColor="@color/cherry_red"
                 android:layout_gravity="center"
                 />
+
         </androidx.appcompat.widget.Toolbar>
     </RelativeLayout>
 

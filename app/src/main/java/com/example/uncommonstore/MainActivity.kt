@@ -3,17 +3,11 @@ package com.example.uncommonstore
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.core.view.GravityCompat
 import com.example.uncommonstore.QRCodeReader.QrReaderActivity
-import com.example.uncommonstore.databinding.ActivityCardBinding
-import com.example.uncommonstore.databinding.ActivityEventListBinding
-import com.example.uncommonstore.databinding.ActivityFaqBinding
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import com.example.uncommonstore.databinding.ActivityMainBinding
-import com.example.uncommonstore.databinding.ActivityProductListBinding
+import com.example.uncommonstore.databinding.*
 import com.example.uncommonstore.event.EventListActivity
 import com.example.uncommonstore.faq.FaqActivity
 import com.example.uncommonstore.member.AuthActivity
@@ -21,23 +15,30 @@ import com.example.uncommonstore.member.MyApplication
 import com.example.uncommonstore.payment.CardActivity
 import com.example.uncommonstore.product.ProductListActivity
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.main_navheader.view.*
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private var isNavigationOpen = false
     lateinit var mainbinding: ActivityMainBinding
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainbinding=ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(mainbinding.root)
-        setToolbar()
 
+        val header = navigationView.getHeaderView(0)
+        header.accountTextView.text="${MyApplication.email}\n님 반갑습니다."
+
+        setToolbar()
         navigationView.setNavigationItemSelectedListener(this)
+
+
     }
+
     // 툴바 사용 설정
     private fun setToolbar(){
         setSupportActionBar(toolbar)
@@ -52,6 +53,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // 클릭된 메뉴 아이템의 아이디 마다 when 구절로 클릭시 동작을 설정한다.
         when(item.itemId){
             android.R.id.home->{ // 메뉴 버튼
+
                 drawerLayout.openDrawer(GravityCompat.START)    // 네비게이션 드로어 열기
             }
         }
@@ -118,4 +120,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             super.onBackPressed()
         }
     }
+
 }
