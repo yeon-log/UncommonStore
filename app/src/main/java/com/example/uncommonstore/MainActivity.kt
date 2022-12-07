@@ -9,9 +9,10 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
-import androidx.databinding.DataBindingUtil
+//import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.example.uncommonstore.QRCodeReader.QRCreateActivity
 import com.example.uncommonstore.QRCodeReader.QrReaderActivity
 import com.example.uncommonstore.databinding.ActivityMainBinding
 import com.example.uncommonstore.event.EventListActivity
@@ -135,8 +136,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when(item.itemId){  // 네비게이션 메뉴가 클릭되면 스낵바가 나타난다.
             //qr코드 입장 미구현
             R.id.qrcodeIn->{
-//                val intent = Intent(this, ::class.java)
-//                startActivity(intent)
+                val intent = Intent(this, QRCreateActivity::class.java)
+                startActivity(intent)
             }
             //qr상품 검색
             R.id.qrcodeSearch->{

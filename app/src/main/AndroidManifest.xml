@@ -146,6 +146,14 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <!-- QR Create -->
+        <activity
+            android:name=".QRCodeReader.QRCreateActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
     </application>
 
 </manifest>

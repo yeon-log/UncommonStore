@@ -90,4 +90,8 @@ dependencies {
 
     //12.07 김나형 메인을 위한 라이브러리 추가
     implementation 'com.tbuonomo:dotsindicator:4.2'
+
+    //12.07 김민석 QR Create 라이브러리 추가
+    implementation 'com.journeyapps:zxing-android-embedded:4.1.0'
+    implementation 'com.google.zxing:core:3.4.1'
 }
