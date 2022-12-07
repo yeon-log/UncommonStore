@@ -8,6 +8,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.uncommonstore.R
 import com.example.uncommonstore.databinding.ActivityCardBinding
+import com.example.uncommonstore.databinding.ActivityCardFrame1pBinding
 import com.example.uncommonstore.db.AppDatabase
 import com.example.uncommonstore.payment.db.CardDao
 import me.relex.circleindicator.CircleIndicator3
@@ -15,8 +16,6 @@ import me.relex.circleindicator.CircleIndicator3
 class CardActivity : FragmentActivity() {
 
     private lateinit var binding: ActivityCardBinding
-    private lateinit var db: AppDatabase
-    private lateinit var CardDao: CardDao
 
     private lateinit var mPager: ViewPager2
     private lateinit var pagerAdapter: FragmentStateAdapter
@@ -29,24 +28,29 @@ class CardActivity : FragmentActivity() {
 
         binding = ActivityCardBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.btnPaymentTermination.setOnClickListener {
+
+        binding.btnPaymentRegister.setOnClickListener {
             val intent = Intent(this, CardAddActivity::class.java)
             startActivity(intent)
         }
 
         //ViewPager2
         mPager = findViewById(R.id.viewpager)
-        //Adapter
+
+        // Adapter
         pagerAdapter = MyAdapter(this, num_page)
         mPager.adapter = pagerAdapter
-        //Indicator
+
+        // Indicator: 뷰페이저 안에 현재 표시되는 페이지를 알 수 있는 표시자 (모양은 라이브러리 마다 다름)
         mIndicator = findViewById(R.id.indicator)
         mIndicator.setViewPager(mPager)
         mIndicator.createIndicators(num_page, 0)
-        //ViewPager Setting
+
+        // ViewPager 세팅하기
         mPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         mPager.currentItem = 1000
         mPager.offscreenPageLimit = 3
+
         mPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageScrolled(
                 position: Int,
