@@ -56,11 +56,11 @@ class ProductListActivity : AppCompatActivity()    {
                         putExtra("product", product)
                         addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     }.run { startActivity(this) }
+
                 }
 
             })
         }
-
     }
 
     override fun onRestart() {

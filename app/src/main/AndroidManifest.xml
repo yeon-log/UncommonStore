@@ -19,6 +19,27 @@
         android:theme="@style/Theme.UncommonStore"
         tools:targetApi="31">
         <activity
+            android:name=".product.pager.ProductThreeFragment"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".product.pager.ProductTwoFragment"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".product.pager.ProductOneFragment"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MainTwoFragment"
             android:exported="false">
             <meta-data
@@ -88,7 +109,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".menu.MainNavHeaderActivity"
             android:exported="false">
@@ -96,7 +116,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".member.AuthActivity"
             android:exported="false">
@@ -145,8 +164,7 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-        <!-- QR Create -->
+        </activity> <!-- QR Create -->
         <activity
             android:name=".QRCodeReader.QRCreateActivity"
             android:exported="false">

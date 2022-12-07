@@ -19,11 +19,11 @@
                 android:id="@+id/tv_event_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="제목"
-                android:textStyle="bold"
-                android:textColor="@color/black"
                 android:padding="15dp"
-                android:textSize="38sp" />
+                android:text="제목"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
             <View
                 android:id="@+id/divider"
@@ -38,14 +38,14 @@
                 android:id="@+id/tv_event_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="15dp"
                 android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="5dp"
+                android:layout_marginBottom="15dp"
                 android:padding="10dp"
                 android:text="내용"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_event_image1"

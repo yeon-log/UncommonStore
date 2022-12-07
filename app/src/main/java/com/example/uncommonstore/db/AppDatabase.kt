@@ -69,18 +69,11 @@ abstract class AppDatabase : RoomDatabase(){
 }
 
 private val PRODUCT_DATA = arrayListOf(
-    ProductEntity(null, "꿀잠친구_베어춘식이", "39,000",0, "https://user-images.githubusercontent.com/70796139/205591848-e9160e4a-0f1d-48a4-a845-2be8e76d183f.png","상품 내용"),
-    ProductEntity(null, "윈터어드벤처 눈집게라이언", "39,000",0, "https://user-images.githubusercontent.com/70796139/205591856-614e0193-d788-4402-a182-f5a74782a767.png","상품 내용"),
-    ProductEntity(null, "안고자는 매직바디 필로우_라이언", "39,000",0, "https://user-images.githubusercontent.com/70796139/205592371-78095e21-3e9a-49c8-af50-2ea2f71b983b.png","상품 내용"),
-    ProductEntity(null, "혀딻은앙꼬 슬리퍼", "39,000",0, "https://user-images.githubusercontent.com/70796139/205592174-360902a3-bc99-4d08-827b-15d12fb54415.png","상품 내용"),
-    ProductEntity(null, "꿀잠친구_베어춘식이", "39,000",0, "https://user-images.githubusercontent.com/70796139/205591848-e9160e4a-0f1d-48a4-a845-2be8e76d183f.png","상품 내용"),
-    ProductEntity(null, "윈터어드벤처 눈집게라이언", "39,000",0, "https://user-images.githubusercontent.com/70796139/205591856-614e0193-d788-4402-a182-f5a74782a767.png","상품 내용"),
-    ProductEntity(null, "안고자는 매직바디 필로우_라이언", "39,000",0, "https://user-images.githubusercontent.com/70796139/205592371-78095e21-3e9a-49c8-af50-2ea2f71b983b.png","상품 내용"),
-    ProductEntity(null, "혀딻은앙꼬 슬리퍼", "39,000",0, "https://user-images.githubusercontent.com/70796139/205592174-360902a3-bc99-4d08-827b-15d12fb54415.png","상품 내용"),
-    ProductEntity(null, "꿀잠친구_베어춘식이", "39,000",0, "https://user-images.githubusercontent.com/70796139/205591848-e9160e4a-0f1d-48a4-a845-2be8e76d183f.png","상품 내용"),
-    ProductEntity(null, "윈터어드벤처 눈집게라이언", "39,000",0, "https://user-images.githubusercontent.com/70796139/205591856-614e0193-d788-4402-a182-f5a74782a767.png","상품 내용"),
-    ProductEntity(null, "안고자는 매직바디 필로우_라이언", "39,000",0, "https://user-images.githubusercontent.com/70796139/205592371-78095e21-3e9a-49c8-af50-2ea2f71b983b.png","상품 내용"),
-    ProductEntity(null, "혀딻은앙꼬 슬리퍼", "39,000",0, "https://user-images.githubusercontent.com/70796139/205592174-360902a3-bc99-4d08-827b-15d12fb54415.png","상품 내용"),
+    ProductEntity(null, "[최고심] [그립톡] 젤리토끼", "15,000",10,
+        "https://user-images.githubusercontent.com/70796139/206120577-5aa93800-38fd-491c-a836-c6e2f8b5454a.jpg,https://user-images.githubusercontent.com/70796139/206120581-176f12b9-d27d-440b-9c3f-152cf2576fd6.jpg,https://user-images.githubusercontent.com/70796139/206120596-a8501eb9-c585-4ae0-bace-ee30ce268362.jpg",
+        "https://user-images.githubusercontent.com/70796139/206120613-2ffa5dea-78ec-4bcd-a43a-fe23a364a99c.jpg,https://user-images.githubusercontent.com/70796139/206120625-072bbeb6-c41d-411f-85f5-e560d94dbe87.jpg,https://user-images.githubusercontent.com/70796139/206120630-f18b9ac1-17ac-4e4c-8e98-613def931d83.jpg,https://user-images.githubusercontent.com/70796139/206120653-e4299aea-7587-41d8-95b0-d68a7203cfe9.jpg",
+        "[최고심] [그립톡] 젤리토끼"),
+
     )
 
 // 2022.12.05 김나형 추가 : Event 기본 데이터 세팅

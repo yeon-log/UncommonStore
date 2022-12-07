@@ -22,11 +22,13 @@ class ProductRecyclerViewAdapter(private val productList: ArrayList<ProductEntit
             binding.tvProductName.text = product.prodName
             binding.tvProductPrice.text = product.prodPrice + "원"
 
-            println("image : ${product.prodImage}" )
+            val images = product.prodThumbnail.toString().split(",")
+
+            println("image: "+ images[0].toString())
 
             //글라이드로 이미지 삽입
             Glide.with(context)
-                .load(product.prodImage)
+                .load(images[0])
                 .into(binding.imgProductThumbnail)
 
             //클릭 이벤트
@@ -37,7 +39,6 @@ class ProductRecyclerViewAdapter(private val productList: ArrayList<ProductEntit
                     listener?.onItemClick(itemView,product,pos)
                 }
             }
-
         }
 
         val root = binding.root
@@ -56,8 +57,6 @@ class ProductRecyclerViewAdapter(private val productList: ArrayList<ProductEntit
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(productList[position])
     }
-
-
 
     override fun getItemCount(): Int {
         return productList.size

@@ -11,6 +11,7 @@ data class ProductEntity(
     @ColumnInfo(name="prodName") val prodName: String,
     @ColumnInfo(name="prodPrice") val prodPrice: String,
     @ColumnInfo(name="prodStock") val prodStock: Int,
+    @ColumnInfo(name="prodThumbnail") val prodThumbnail: String,
     @ColumnInfo(name="prodImage") val prodImage: String,
     @ColumnInfo(name="prodContent") val prodContent: String
     ) : Serializable
