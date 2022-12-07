@@ -9,7 +9,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
-//import androidx.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.uncommonstore.QRCodeReader.QRCreateActivity
@@ -40,12 +40,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         mainbinding=ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(mainbinding.root)
+
         val header = navigationView.getHeaderView(0)
         header.accountTextView.text="${MyApplication.email}\n님 반갑습니다."
         setToolbar()
 
         navigationView.setNavigationItemSelectedListener(this)
 
+        // 2022.12.07 김나형 추가
         // 프래그먼트 선언
         var fragment1 = MainOneFragment()
         var fragment2 = MainTwoFragment()
@@ -68,14 +70,51 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         // 화면 변경 시 이벤트 설정
         mainbinding.mainViewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            // Circular Scrolling 기능을 구현하기 위한 현재 상태와 위치 저장할 변수 2개 선언
+            var currentState = 0
+            var currentPos = 0
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset:Float,
+                positionOffsetPixels:Int
+            ){
+                if(currentState == ViewPager2.SCROLL_STATE_DRAGGING && currentPos == position){
+                    if(currentPos == 0) mainbinding.mainViewPager2.currentItem = 2
+                    else if(currentPos == 2) mainbinding.mainViewPager2.currentItem = 0
+                }
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+            }
             override fun onPageSelected(position: Int){
+                currentPos = position
                 super.onPageSelected(position)
-
                 //화면 위치 표시 색상 설정
                 selectedIndicator(position)
             }
+
+            override fun onPageScrollStateChanged(state: Int) {
+                currentState = state
+                super.onPageScrollStateChanged(state)
+            }
         })
         //mainbindig.dotsIndicator.setViewPager2(mainbinding.mainViewPager2)
+
+        // 서비스 바로가기 연결
+        mainbinding.productBtn.setOnClickListener{
+            var intentProduct = Intent(this, ProductListActivity::class.java)
+            startActivity(intentProduct)
+        }
+        mainbinding.cardBtn.setOnClickListener{
+            var intentcard = Intent(this, CardActivity::class.java)
+            startActivity(intentcard)
+        }
+        mainbinding.eventBtn.setOnClickListener{
+            var intentevent = Intent(this, EventListActivity::class.java)
+            startActivity(intentevent)
+        }
+        mainbinding.faqBtn.setOnClickListener{
+            var intentfaq = Intent(this, FaqActivity::class.java)
+            startActivity(intentfaq)
+        }
     }
     // 화면 위치 표시 생성
     private fun dotsIndicator(){
@@ -163,7 +202,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.faq->{
                 val intent = Intent(this, FaqActivity::class.java)
                 startActivity(intent)
-           }
+            }
             //로그아웃
             R.id.logout->{
                 MyApplication.auth.signOut()

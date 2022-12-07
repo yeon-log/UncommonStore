@@ -20,7 +20,7 @@ abstract class AppDatabase : RoomDatabase(){
     //상품 테이블 추가
     abstract fun ProductDao() : ProductDao
 
-    //room Event 테이블 추가
+    //2022.12.05 김나형 추가 : Event 테이블
     abstract fun EventDao() : EventDao
 
     // 2022.12.06 심지연 추가: room Card 테이블
@@ -40,7 +40,7 @@ abstract class AppDatabase : RoomDatabase(){
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             super.onCreate(db)
                             fillInDb(context.applicationContext)
-                            //room event 데이터 추가(결제수단은 추가 안해도됨)
+                            // 2022.12.05 김나형 추가 : event 데이터 추가
                             fillInEventDb(context.applicationContext)
                         }
                     }).build()
@@ -57,7 +57,7 @@ abstract class AppDatabase : RoomDatabase(){
             }
         }
 
-        // room 이벤트 기본 데이터 추가 함수
+        // 2022.12.05 김나형 추가 : Event 기본 데이터 추가 함수
         fun fillInEventDb(context: Context){
             CoroutineScope(Dispatchers.IO).launch {
                 getInstance(context)!!.EventDao().insertEvent(
@@ -83,7 +83,7 @@ private val PRODUCT_DATA = arrayListOf(
     ProductEntity(null, "혀딻은앙꼬 슬리퍼", "39,000",0, "https://user-images.githubusercontent.com/70796139/205592174-360902a3-bc99-4d08-827b-15d12fb54415.png","상품 내용"),
     )
 
-//room 기본 데이터 세팅
+// 2022.12.05 김나형 추가 : Event 기본 데이터 세팅
 private val EVENT_DATA = arrayListOf(
     EventEntity(null, "망그러진 곰 X 더 현대 서울 언커먼 스토어", "https://user-images.githubusercontent.com/63277040/205828117-86c948c2-33c8-4d98-9e20-ad5dbe42ac11.PNG",
         "https://user-images.githubusercontent.com/63277040/205915973-a45070ab-23c4-485b-9a5b-a841625b5a63.jpg","https://user-images.githubusercontent.com/63277040/205915976-74e27f7d-3362-4561-91ef-7f71d5909393.jpg","https://user-images.githubusercontent.com/63277040/205915977-6b433f43-df7c-49a6-a4d3-be5ac6fc9c9d.jpg","행사기간 : 11/4(금)~12/22(목)"),
