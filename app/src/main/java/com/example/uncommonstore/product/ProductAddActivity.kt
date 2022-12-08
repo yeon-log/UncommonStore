@@ -3,11 +3,9 @@ package com.example.uncommonstore.product
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.uncommonstore.R
 import com.example.uncommonstore.databinding.ActivityProductAddBinding
 import com.example.uncommonstore.db.AppDatabase
 import com.example.uncommonstore.product.db.ProductDao
-import com.example.uncommonstore.product.db.ProductEntity
 
 class ProductAddActivity : AppCompatActivity() {
     lateinit var binding : ActivityProductAddBinding

@@ -19,6 +19,13 @@
         android:theme="@style/Theme.UncommonStore"
         tools:targetApi="31">
         <activity
+            android:name=".product.search.ProductSearchActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".product.pager.ProductThreeFragment"
             android:exported="false">
             <meta-data

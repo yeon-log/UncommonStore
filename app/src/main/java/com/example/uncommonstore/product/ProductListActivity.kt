@@ -12,7 +12,7 @@ import com.example.uncommonstore.databinding.ActivityProductListBinding
 import com.example.uncommonstore.db.AppDatabase
 import com.example.uncommonstore.product.db.ProductDao
 import com.example.uncommonstore.product.db.ProductEntity
-import kotlinx.android.synthetic.main.activity_event_list.*
+import com.example.uncommonstore.product.search.ProductSearchActivity
 import kotlinx.android.synthetic.main.activity_product_list.*
 
 class ProductListActivity : AppCompatActivity()    {
@@ -22,7 +22,6 @@ class ProductListActivity : AppCompatActivity()    {
     private lateinit var productDao: ProductDao
     private lateinit var productList: ArrayList<ProductEntity>
     private lateinit var adapter: ProductRecyclerViewAdapter
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,6 +82,10 @@ class ProductListActivity : AppCompatActivity()    {
             android.R.id.home->{ // 뒤로 가기 버튼을 눌렀을 때
                 finish()
                 return super.onOptionsItemSelected(item)
+            }
+            R.id.action_search->{ // 검색버튼 눌렀을때
+                val intentSearch = Intent(this@ProductListActivity, ProductSearchActivity::class.java)
+                startActivity(intentSearch)
             }
         }
         return super.onOptionsItemSelected(item)

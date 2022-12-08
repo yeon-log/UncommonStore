@@ -4,18 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.LinearLayout.LayoutParams
 import android.widget.TextView
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.example.uncommonstore.*
@@ -24,21 +20,27 @@ import com.example.uncommonstore.databinding.ActivityProductOneFragmentBinding
 import com.example.uncommonstore.databinding.ActivityProductThreeFragmentBinding
 import com.example.uncommonstore.databinding.ActivityProductTwoFragmentBinding
 import com.example.uncommonstore.db.AppDatabase
+import com.example.uncommonstore.product.db.ProductDao
 import com.example.uncommonstore.product.db.ProductEntity
 import com.example.uncommonstore.product.pager.ProductOneFragment
 import com.example.uncommonstore.product.pager.ProductThreeFragment
 import com.example.uncommonstore.product.pager.ProductTwoFragment
 import com.example.uncommonstore.product.pager.ViewPagerAdapter
-import kotlinx.android.synthetic.main.activity_event_detail.*
+import com.example.uncommonstore.product.search.ProductSearchActivity
 import kotlinx.android.synthetic.main.activity_product_detail.*
-import kotlinx.android.synthetic.main.activity_product_detail.view.*
 
 class ProductDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProductDetailBinding
     private lateinit var bindingFragmentOne : ActivityProductOneFragmentBinding
     private lateinit var bindingFragmentTwo : ActivityProductTwoFragmentBinding
     private lateinit var bindingFragmentThree : ActivityProductThreeFragmentBinding
+
+    //추천 상품을 위한 추가
     private lateinit var db:AppDatabase
+    private lateinit var productDao: ProductDao
+    private lateinit var productList: ArrayList<ProductEntity>
+    private lateinit var adapter: ProductRecyclerViewAdapter
+
     // 텍스트뷰 -> 화면 위치 표시
     private var dots = arrayOfNulls<TextView>(3)
 
@@ -54,6 +56,10 @@ class ProductDetailActivity : AppCompatActivity() {
         val prodThumbnails = productData.prodThumbnail.toString().split(",")
         val prodImages = productData.prodImage.toString().split(",")
 
+        db = AppDatabase.getInstance(this)!!
+        productDao = db.ProductDao()
+
+        getRecommendProductList()
 
         //재고확인 버튼
         binding.btnProductStock.setOnClickListener{
@@ -136,12 +142,34 @@ class ProductDetailActivity : AppCompatActivity() {
         setToolBar()
     }
 
+    //추천 상품 리스트 함수 (랜덤으로 6개 반환)
+    private fun getRecommendProductList(){
+        Thread{
+            productList = ArrayList(productDao.getProductRandomList())
+            setRecyclerView()
+        }.start()
+    }
+    private fun setRecyclerView() {
+        runOnUiThread {
+            adapter = ProductRecyclerViewAdapter(productList)
+            binding.recyclerView.adapter = adapter
+            binding.recyclerView.layoutManager = GridLayoutManager(this,3)
+            adapter.setOnItemClickListener(object : ProductRecyclerViewAdapter.OnItemClickListener{
+                override fun onItemClick(v: View, product: ProductEntity, pos : Int) {
+                    Intent(this@ProductDetailActivity, ProductDetailActivity::class.java).apply {
+                        putExtra("product", product)
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    }.run { startActivity(this) }
+                }
+            })
+        }
+    }
     // 화면 위치 표시 생성
     private fun dotsIndicator(){
         for(i: Int in 0 until 3){
             dots[i] = TextView(this)
             dots[i]?.text = Html.fromHtml(("&#9679"), Html.FROM_HTML_MODE_LEGACY)
-            dots[i]?.textSize = 25F
+            dots[i]?.textSize = 15F
 
             // 텍스트뷰 레이아웃 설정
             var params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
@@ -149,7 +177,7 @@ class ProductDetailActivity : AppCompatActivity() {
             )
 
             // 텍스트뷰 간의 거리 조절
-            params.leftMargin = 30
+            params.leftMargin = 25
             // 텍스트뷰 레이아웃 적용
             dots[i]?.layoutParams = params
             // 레이아웃에 텍스트뷰 적용
@@ -168,6 +196,7 @@ class ProductDetailActivity : AppCompatActivity() {
             }
         }
     }
+
     //이 부분 부터 툴바 부분
     private fun setToolBar(){
         setSupportActionBar(product_detail_toolbar)
@@ -187,8 +216,9 @@ class ProductDetailActivity : AppCompatActivity() {
                 finish()
                 return super.onOptionsItemSelected(item)
             }
-            R.id.action_search->{
-                Log.d("이거는 구현이가","알아서 하겠지")
+            R.id.action_search->{ // 검색버튼 눌렀을때
+                val intentSearch = Intent(this@ProductDetailActivity, ProductSearchActivity::class.java)
+                startActivity(intentSearch)
             }
             R.id.action_home->{
                 val intent = Intent(this, MainActivity::class.java)
@@ -198,4 +228,10 @@ class ProductDetailActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
     //툴바 부분 끝
+
+    override fun onRestart() {
+        super.onRestart()
+        getRecommendProductList()
+    }
+
 }

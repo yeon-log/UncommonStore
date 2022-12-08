@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_qrcode_search"
-        android:title="qr검색"
+        android:title="QR 검색"
         android:icon="@drawable/qrcode_main"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_info"
-        android:title="이용방법"
+        android:title="이용 방법"
         android:icon="@drawable/info_main"
         app:showAsAction="ifRoom" />
 </menu>

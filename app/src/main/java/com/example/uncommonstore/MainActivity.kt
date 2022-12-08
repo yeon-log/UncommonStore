@@ -127,7 +127,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         for(i: Int in 0 until 3){
             dots[i] = TextView(this)
             dots[i]?.text = Html.fromHtml(("&#9679"), Html.FROM_HTML_MODE_LEGACY)
-            dots[i]?.textSize = 25F
+            dots[i]?.textSize = 15F
 
             // 텍스트뷰 레이아웃 설정
             var params: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
@@ -135,7 +135,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             )
 
             // 텍스트튜 간의 거리 조절
-            params.leftMargin = 30
+            params.leftMargin = 25
             // 텍스트뷰 레이아웃 적용
             dots[i]?.layoutParams = params
             // 레이아웃에 텍스트뷰 적용
@@ -229,6 +229,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val intent = Intent(this, AuthActivity::class.java)
                 startActivity(intent)
                 finish()
+            }
+            R.id.action_info->{
+                //미구현 이용방법 인텐트로 추가 예정
             }
         }
         drawerLayout.closeDrawers() // 기능을 수행하고 네비게이션을 닫아준다.

@@ -181,7 +181,7 @@
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="@id/img_product_thumbnail"
                     app:layout_constraintStart_toStartOf="@+id/img_product_thumbnail"
-                    app:layout_constraintTop_toBottomOf="@+id/product_price" />
+                    app:layout_constraintTop_toBottomOf="@+id/divider" />
 
                 <TextView
                     android:id="@+id/product_content"
@@ -243,12 +243,46 @@
                     android:layout_gravity="center"
                     android:adjustViewBounds="true"
                     app:srcCompat="@drawable/product_default_item" />
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/image_layout"
+                    android:background="@color/font_gray" />
+
+                <TextView
+                    android:id="@+id/tv_product_random_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="이런 상품은 어떠세요?"
+                    android:textColor="@color/font_black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/img_product_thumbnail"
+                    app:layout_constraintStart_toStartOf="@+id/img_product_thumbnail"
+                    app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="30dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_product_random_title" />
+
             </LinearLayout>
-
-
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </ScrollView>
 
