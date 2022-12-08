@@ -117,6 +117,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             var intentfaq = Intent(this, FaqActivity::class.java)
             startActivity(intentfaq)
         }
+        mainbinding.mainEnter.setOnClickListener{
+            var intententer = Intent(this, QRCreateActivity::class.java)
+            startActivity(intententer)
+        }
     }
     // 화면 위치 표시 생성
     private fun dotsIndicator(){
