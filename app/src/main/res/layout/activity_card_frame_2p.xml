@@ -5,9 +5,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="@dimen/frameSize"
         android:layout_marginLeft="@dimen/pageMarginAndOffset"
         android:layout_marginRight="@dimen/pageMarginAndOffset"
-        android:layout_height="@dimen/frameSize"
         android:orientation="vertical">
 
         <ImageView
@@ -15,19 +15,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#afe3ff"
-            android:contentDescription="@string/app_name"/>
+            android:contentDescription="@string/app_name" />
 
         <TextView
-            android:id="@+id/tvName2"
+            android:id="@+id/tv_card_name2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:layout_centerInParent="true"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:text="카드 넣을 두번쨰 페이지이이"/>
+            android:textSize="70dp" />
 
     </RelativeLayout>
 

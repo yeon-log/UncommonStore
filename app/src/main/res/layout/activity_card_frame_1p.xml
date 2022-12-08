@@ -17,19 +17,12 @@
             android:background="#ffcccc"
             android:contentDescription="@string/app_name" />
 
-        <Button
-            android:id="@+id/btn1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="114dp"
-            android:layout_marginTop="106dp"
-            android:layout_marginEnd="123dp"
-            android:layout_marginBottom="166dp"
-            android:text="카드등록" />
+        <TextView
+            android:id="@+id/tv_card_name1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="70dp"
+            android:gravity="center"/>
 
     </RelativeLayout>
 
