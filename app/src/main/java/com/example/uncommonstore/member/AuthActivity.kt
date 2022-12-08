@@ -80,7 +80,7 @@ class AuthActivity : AppCompatActivity() {
 
             Log.d("logintest","email:$email, password:$password, passwordCheck:$password")
             //아무것도 입력하지 않았을 때
-            if(email==""&&password==""){
+            if(email==""||password==""){
                 Toast.makeText(baseContext, "정보 입력이 필요합니다.", Toast.LENGTH_SHORT).show()
             }
             else if(password!=passwordCheck){
@@ -121,22 +121,28 @@ class AuthActivity : AppCompatActivity() {
             val email = binding.authEmailEditView.text.toString()
             val password = binding.authPasswordEditView.text.toString()
             Log.d("logintest","email:$email, password:$password")
-            MyApplication.auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this){ task ->
-                    binding.authEmailEditView.text.clear()
-                    binding.authPasswordEditView.text.clear()
-                    if(task.isSuccessful){
-                        if(MyApplication.checkAuth()){
-                            MyApplication.email = email
-                            changeVisibility("login")
-                        }else {
-                            Toast.makeText(baseContext, "전송된 메일로 이메일 인증이 되지 않았습니다.", Toast.LENGTH_SHORT).show()
+            //이메일
+            if(email==""||password==""){
+                Toast.makeText(baseContext, "로그인 실패 (입력 오류)", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                MyApplication.auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this){ task ->
+                        binding.authEmailEditView.text.clear()
+                        binding.authPasswordEditView.text.clear()
+                        if(task.isSuccessful){
+                            if(MyApplication.checkAuth()){
+                                MyApplication.email = email
+                                changeVisibility("login")
+                            }else {
+                                Toast.makeText(baseContext, "전송된 메일로 이메일 인증이 되지 않았습니다.", Toast.LENGTH_SHORT).show()
 
+                            }
+                        }else {
+                            Toast.makeText(baseContext, "로그인 실패", Toast.LENGTH_SHORT).show()
                         }
-                    }else {
-                        Toast.makeText(baseContext, "로그인 실패", Toast.LENGTH_SHORT).show()
                     }
-                }
+            }
         }
 
         //회원 가입에서 취소 버튼을 눌렀을때 로그인 화면으로 이동

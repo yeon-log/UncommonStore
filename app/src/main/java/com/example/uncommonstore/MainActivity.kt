@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -159,12 +160,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_menu_cherryred)  // 왼쪽 버튼 이미지 설정
         supportActionBar!!.setDisplayShowTitleEnabled(false)    // 타이틀 안보이게 하기
     }
+    //툴바 메뉴 설정 (qr상품검색, 이용방법)
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar_main, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // 클릭된 메뉴 아이템의 아이디 마다 when 구절로 클릭시 동작을 설정한다.
         when(item.itemId){
             android.R.id.home->{ // 메뉴 버튼
                 drawerLayout.openDrawer(GravityCompat.START)    // 네비게이션 드로어 열기
+            }
+            //qr코드 상
+            R.id.action_qrcode_search->{
+                val intent = Intent(this, QrReaderActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.action_info->{
+                //미구현 이용방법 인텐트로 추가 예정
             }
         }
         return super.onOptionsItemSelected(item)
