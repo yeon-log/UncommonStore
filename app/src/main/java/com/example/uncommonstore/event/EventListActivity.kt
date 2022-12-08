@@ -3,13 +3,21 @@ package com.example.uncommonstore.event
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.uncommonstore.R
 import com.example.uncommonstore.databinding.ActivityEventListBinding
 import com.example.uncommonstore.db.AppDatabase
 import com.example.uncommonstore.event.db.EventDao
 import com.example.uncommonstore.event.db.EventEntity
+import kotlinx.android.synthetic.main.activity_event_list.*
+import kotlinx.android.synthetic.main.activity_main.*
+
 
 class EventListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEventListBinding
@@ -22,14 +30,32 @@ class EventListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEventListBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
-
         db = AppDatabase.getInstance(this)!!
         //room 테이블 DAO 맞춰서 변경
         eventDao = db.EventDao()
+        setToolBar()
         getAllEventList()
     }
+
+    //이 부분 부터 툴바 부분 12.07 구영모 추가
+    private fun setToolBar(){
+        setSupportActionBar(event_toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setHomeAsUpIndicator(R.drawable.go_back)
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // 클릭된 메뉴 아이템의 아이디 마다 when 구절로 클릭시 동작을 설정한다.
+        when(item.itemId){
+            android.R.id.home->{ // 메뉴 버튼
+                finish()
+                return super.onOptionsItemSelected(item)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+    //툴바 부분 끝
 
     private fun getAllEventList(){
         Thread{

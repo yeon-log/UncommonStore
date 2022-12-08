@@ -2,8 +2,12 @@ package com.example.uncommonstore.faq
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.uncommonstore.R
 import com.example.uncommonstore.databinding.ActivityFaqBinding
+import kotlinx.android.synthetic.main.activity_event_list.*
+import kotlinx.android.synthetic.main.activity_faq.*
 
 class FaqActivity : AppCompatActivity() {
     // https://www.geeksforgeeks.org/how-to-create-expandable-recyclerview-items-in-android-using-kotlin/ 사이트 소스를 수정
@@ -27,9 +31,28 @@ class FaqActivity : AppCompatActivity() {
         expandableAdapter = ExpandableAdapter(languageList)
 
         getData()
-
+        setToolBar()
         binding.rvList.adapter = expandableAdapter
     }
+
+    //이 부분 부터 툴바 부분 구영모 추가
+    private fun setToolBar(){
+        setSupportActionBar(fqa_toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setHomeAsUpIndicator(R.drawable.go_back)
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // 클릭된 메뉴 아이템의 아이디 마다 when 구절로 클릭시 동작을 설정한다.
+        when(item.itemId){
+            android.R.id.home->{ // 메뉴 버튼
+                finish()
+                return super.onOptionsItemSelected(item)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+    //툴바 부분 끝
 
     private fun getData() {
         // 서버에서 가져온 데이터라고 가정한다.

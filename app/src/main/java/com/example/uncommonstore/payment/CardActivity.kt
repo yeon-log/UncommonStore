@@ -3,7 +3,9 @@ package com.example.uncommonstore.payment
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -17,9 +19,11 @@ import com.example.uncommonstore.payment.db.CardDao
 import com.example.uncommonstore.payment.db.CardEntity
 import com.example.uncommonstore.product.ProductDetailActivity
 import com.example.uncommonstore.product.db.ProductEntity
+import kotlinx.android.synthetic.main.activity_card.*
+import kotlinx.android.synthetic.main.activity_event_list.*
 import me.relex.circleindicator.CircleIndicator3
 
-class CardActivity : FragmentActivity() {
+class CardActivity : AppCompatActivity() {
 
     private lateinit var db: AppDatabase
     private lateinit var CardDao: CardDao
@@ -114,7 +118,29 @@ class CardActivity : FragmentActivity() {
                 page.translationY = myOffset
             }
         })
+        setToolBar()
     }
+
+    //이 부분 부터 툴바 부분 12.08 구영모 추가
+    private fun setToolBar(){
+        setSupportActionBar(card_toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setHomeAsUpIndicator(R.drawable.go_back)
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // 클릭된 메뉴 아이템의 아이디 마다 when 구절로 클릭시 동작을 설정한다.
+        when(item.itemId){
+            android.R.id.home->{ // 메뉴 버튼
+                finish()
+                return super.onOptionsItemSelected(item)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+    //툴바 부분 끝
+
+
     private fun getAllCardList(){
         Thread{
             cards = ArrayList(CardDao.getCardList())
@@ -132,4 +158,5 @@ class CardActivity : FragmentActivity() {
         var binding: ActivityCardFrame1pBinding
 
     }
+
 }

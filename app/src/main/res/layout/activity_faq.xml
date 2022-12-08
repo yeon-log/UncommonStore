@@ -5,11 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".faq.FaqActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/fqa_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_background"
+        app:contentInsetStart="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <TextView
+            android:id="@+id/MainTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="자주 묻는 질문"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:textColor="@color/black"
+            android:layout_gravity="center"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/fqa_toolbar"
         tools:listitem="@layout/activity_faq_item"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 

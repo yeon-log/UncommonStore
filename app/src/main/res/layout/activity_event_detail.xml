@@ -5,15 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".event.EventDetailActivity">
+    <!--툴바 부분시작-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/event_detail_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_background"
+        app:contentInsetStart="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <TextView
+            android:id="@+id/MainTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이벤트 상세"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:textColor="@color/black"
+            android:layout_gravity="center" />
+    </androidx.appcompat.widget.Toolbar>
+    <!--툴바 부분 끝-->
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/event_detail_toolbar">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tv_event_title"
@@ -22,7 +49,7 @@
                 android:padding="15dp"
                 android:text="제목"
                 android:textColor="@color/black"
-                android:textSize="22sp"
+                android:textSize="38sp"
                 android:textStyle="bold" />
 
             <View
@@ -45,29 +72,28 @@
                 android:padding="10dp"
                 android:text="내용"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_event_image1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/product_default_item"
-                android:src="@drawable/event_bari" />
+                android:src="@drawable/event_bari"
+                app:srcCompat="@drawable/product_default_item" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_event_image2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/product_default_item"
-                android:src="@drawable/event_bari" />
+                android:src="@drawable/event_bari"
+                app:srcCompat="@drawable/product_default_item" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_event_image3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/product_default_item"
-                android:src="@drawable/event_bari" />
+                android:src="@drawable/event_bari"
+                app:srcCompat="@drawable/product_default_item" />
         </LinearLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

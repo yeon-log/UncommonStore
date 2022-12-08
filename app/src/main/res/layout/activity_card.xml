@@ -7,22 +7,31 @@
     android:orientation="vertical"
     tools:context=".payment.CardActivity">
 
-    <LinearLayout
+    <!--툴바 부분시작-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/card_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_background"
+        app:contentInsetStart="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        >
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/MainTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="결제 수단"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:textColor="@color/black"
             android:layout_gravity="center"
-            android:background="@color/background_gray"
-            android:text="!!!상단바 자리 비워두기!!!"
-            android:textAlignment="center"
-            android:textColor="@color/black">
-
-        </TextView>
-    </LinearLayout>
+            />
+    </androidx.appcompat.widget.Toolbar>
+    <!--툴바 부분 끝-->
 
     <LinearLayout
         android:layout_width="match_parent"

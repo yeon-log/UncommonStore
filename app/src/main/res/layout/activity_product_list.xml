@@ -6,17 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".product.ProductListActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/product_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_background"
+        app:contentInsetStart="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        >
+
+        <TextView
+            android:id="@+id/MainTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="상품 리스트"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            />
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:id="@+id/tv_total_product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="총 0개"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/font_black"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/product_toolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

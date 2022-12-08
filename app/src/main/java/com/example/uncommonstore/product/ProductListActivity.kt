@@ -3,17 +3,21 @@ package com.example.uncommonstore.product
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.uncommonstore.R
 import com.example.uncommonstore.databinding.ActivityProductListBinding
 import com.example.uncommonstore.db.AppDatabase
 import com.example.uncommonstore.product.db.ProductDao
 import com.example.uncommonstore.product.db.ProductEntity
+import kotlinx.android.synthetic.main.activity_event_list.*
+import kotlinx.android.synthetic.main.activity_product_list.*
 
 class ProductListActivity : AppCompatActivity()    {
 
     private lateinit var binding:ActivityProductListBinding
-
     private lateinit var db : AppDatabase
     private lateinit var productDao: ProductDao
     private lateinit var productList: ArrayList<ProductEntity>
@@ -33,8 +37,8 @@ class ProductListActivity : AppCompatActivity()    {
 
         db = AppDatabase.getInstance(this)!!
         productDao = db.ProductDao()
+        setToolBar()
         getAllProductList()
-
     }
 
     private fun getAllProductList(){
@@ -62,6 +66,28 @@ class ProductListActivity : AppCompatActivity()    {
             })
         }
     }
+    //이 부분 부터 툴바 부분 12.08 구영모 추가
+    private fun setToolBar(){
+        setSupportActionBar(product_toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setHomeAsUpIndicator(R.drawable.go_back)
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar_search, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // 클릭된 메뉴 아이템의 아이디 마다 when 구절로 클릭시 동작을 설정한다.
+        when(item.itemId){
+            android.R.id.home->{ // 뒤로 가기 버튼을 눌렀을 때
+                finish()
+                return super.onOptionsItemSelected(item)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+    //툴바 부분 끝
 
     override fun onRestart() {
         super.onRestart()

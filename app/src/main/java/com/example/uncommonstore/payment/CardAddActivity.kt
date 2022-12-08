@@ -1,12 +1,20 @@
 package com.example.uncommonstore.payment
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.uncommonstore.MainActivity
+import com.example.uncommonstore.R
 import com.example.uncommonstore.databinding.ActivityAddCardBinding
 import com.example.uncommonstore.db.AppDatabase
 import com.example.uncommonstore.payment.db.CardDao
 import com.example.uncommonstore.payment.db.CardEntity
+import kotlinx.android.synthetic.main.activity_add_card.*
+import kotlinx.android.synthetic.main.activity_event_detail.*
 
 class CardAddActivity : AppCompatActivity() {
     lateinit var binding: ActivityAddCardBinding
@@ -24,6 +32,7 @@ class CardAddActivity : AppCompatActivity() {
         binding.btnCompletion2.setOnClickListener {
             insertCard()
         }
+        setToolBar()
     }
 
     private fun insertCard() {
@@ -58,4 +67,35 @@ class CardAddActivity : AppCompatActivity() {
             }.start()
         }
     }
+
+    //이 부분 부터 툴바 부분
+    private fun setToolBar(){
+        setSupportActionBar(card_add_toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setHomeAsUpIndicator(R.drawable.go_back)
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // 클릭된 메뉴 아이템의 아이디 마다 when 구절로 클릭시 동작을 설정한다.
+        when(item.itemId){
+            android.R.id.home->{ // 메뉴 버튼
+                finish()
+                return super.onOptionsItemSelected(item)
+            }
+            R.id.action_search->{
+                Log.d("이거는 구현이가","알아서 하겠지")
+            }
+            R.id.action_home->{
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+    //툴바 부분 끝
 }
