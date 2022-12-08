@@ -11,5 +11,5 @@ data class CardEntity(
     @ColumnInfo(name = "cardCvc") val cardCvc: Int,
     @ColumnInfo(name = "cardExpiration") val cardExpiration: Int,
     @ColumnInfo(name = "cardNum") val cardNum: String,
-    @ColumnInfo(name = "cardName") val cardName: String
+    @ColumnInfo(name = "cardName") var cardName: String
 )

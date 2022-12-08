@@ -14,7 +14,6 @@ import com.example.uncommonstore.db.AppDatabase
 import com.example.uncommonstore.payment.db.CardDao
 import com.example.uncommonstore.payment.db.CardEntity
 import kotlinx.android.synthetic.main.activity_add_card.*
-import kotlinx.android.synthetic.main.activity_event_detail.*
 
 class CardAddActivity : AppCompatActivity() {
     lateinit var binding: ActivityAddCardBinding

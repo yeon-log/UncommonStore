@@ -15,6 +15,6 @@ interface CardDao {
     @Query("SELECT * FROM card")
     fun getCardList(): List<CardEntity>
 
-    //@Query("DELETE FROM card WHERE cardName = :cardName")
-    // fun deleteCard(cardName: CardEntity)
+    @Query("DELETE FROM card WHERE cardName = :cardName")
+    fun deleteCard(cardName: String?)
 }
