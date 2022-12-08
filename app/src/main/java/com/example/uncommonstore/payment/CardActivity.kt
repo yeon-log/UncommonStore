@@ -27,7 +27,7 @@ class CardActivity : AppCompatActivity() {
 
     private lateinit var db: AppDatabase
     private lateinit var CardDao: CardDao
-    private lateinit var cards : List<CardEntity>
+    private var cards : MutableList<CardEntity?> = mutableListOf(null, null, null, null)
 
     private lateinit var binding: ActivityCardBinding
     private lateinit var mPager: ViewPager2
@@ -143,11 +143,15 @@ class CardActivity : AppCompatActivity() {
 
     private fun getAllCardList(){
         Thread{
+            println("after: " + cards.size)
             cards = ArrayList(CardDao.getCardList())
-
+            for(i in 0 until (num_page-cards.size)){
+                cards.add(null)
+            }
+            println("after: " + cards.size)
             runOnUiThread {
                 // Adapter
-                pagerAdapter = MyAdapter(this, num_page, cards!!)
+                pagerAdapter = MyAdapter(this, num_page, cards)
                 mPager.adapter = pagerAdapter
 
             }
