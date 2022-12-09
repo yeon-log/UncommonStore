@@ -33,14 +33,14 @@
             android:title="자주 묻는 질문"
             />
         <item
+            android:id="@+id/instruction"
+            android:icon="@drawable/info_main"
+            android:title="이용 방법"
+            />
+        <item
             android:id="@+id/logout"
             android:icon="@drawable/logout"
             android:title="로그아웃"
-            />
-        <item
-            android:id="@+id/how_to_use"
-            android:icon="@drawable/info_main"
-            android:title="이용 방법"
             />
     </group>
 </menu>

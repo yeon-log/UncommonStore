@@ -241,7 +241,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(intent)
                 finish()
             }
-            R.id.how_to_use->{
+            R.id.instruction->{
                 val intent = Intent(this, InstructionActivity::class.java)
                 startActivity(intent)
             }
