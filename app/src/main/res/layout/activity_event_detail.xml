@@ -49,7 +49,7 @@
                 android:padding="15dp"
                 android:text="제목"
                 android:textColor="@color/black"
-                android:textSize="38sp"
+                android:textSize="22dp"
                 android:textStyle="bold" />
 
             <View
@@ -72,7 +72,7 @@
                 android:padding="10dp"
                 android:text="내용"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="16dp" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_event_image1"
