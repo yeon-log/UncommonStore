@@ -24,6 +24,8 @@ import com.example.uncommonstore.member.MyApplication
 import com.example.uncommonstore.payment.CardActivity
 import com.example.uncommonstore.product.ProductListActivity
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_navheader.view.*
 
@@ -41,10 +43,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // binding 초기화
         mainbinding=ActivityMainBinding.inflate(layoutInflater)
 
+
         setContentView(mainbinding.root)
 
         val header = navigationView.getHeaderView(0)
-        header.accountTextView.text="${MyApplication.email}\n님 반갑습니다."
+        val user = Firebase.auth.currentUser
+        user?.let{
+            header.accountTextView.text="${user.displayName}님 반갑습니다."
+        }
         setToolbar()
 
         navigationView.setNavigationItemSelectedListener(this)

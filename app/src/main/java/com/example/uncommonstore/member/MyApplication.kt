@@ -9,11 +9,12 @@ class MyApplication: MultiDexApplication() {
     companion object {
         lateinit var auth: FirebaseAuth
         var email: String? = null
-
+        var name: String? = null
         fun checkAuth(): Boolean {
             var currentUser = auth.currentUser
             return currentUser?.let {
-                email = currentUser.email
+                email = currentUser.email //이메일
+                name = currentUser.displayName //이름
                 currentUser.isEmailVerified
             } ?: let {
                 false
