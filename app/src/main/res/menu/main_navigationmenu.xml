@@ -3,14 +3,10 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/qrcodeIn"
-            android:icon="@drawable/qrcode"
+            android:icon="@drawable/ic_baseline_arrow_forward_24"
             android:title="언커먼스토어 입장 하기"
             />
-        <item
-            android:id="@+id/event"
-            android:icon="@drawable/event"
-            android:title="이벤트"
-            />
+
         <item
             android:id="@+id/product"
             android:icon="@drawable/product"
@@ -18,13 +14,18 @@
             />
         <item
             android:id="@+id/qrcodeSearch"
-            android:icon="@drawable/ic_baseline_search_24"
+            android:icon="@drawable/qrcode"
             android:title="상품 QR 검색"
             />
         <item
             android:id="@+id/payment"
             android:icon="@drawable/card"
             android:title="결제 수단 관리"
+            />
+        <item
+            android:id="@+id/event"
+            android:icon="@drawable/event"
+            android:title="이벤트"
             />
         <item
             android:id="@+id/faq"
