@@ -35,7 +35,7 @@ class FaqActivity : AppCompatActivity() {
         binding.rvList.adapter = expandableAdapter
     }
 
-    //이 부분 부터 툴바 부분 구영모 추가
+    //자주 묻는 질문 툴바 부분 12.07 구영모 추가
     private fun setToolBar(){
         setSupportActionBar(fqa_toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)

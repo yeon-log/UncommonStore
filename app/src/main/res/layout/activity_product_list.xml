@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:text="상품 리스트"
             android:textStyle="bold"
-            android:textSize="24dp"
+            android:textSize="18dp"
             android:textColor="@color/black"
             android:layout_gravity="center"
             />

@@ -38,7 +38,7 @@ class EventListActivity : AppCompatActivity() {
         getAllEventList()
     }
 
-    //이 부분 부터 툴바 부분 12.07 구영모 추가
+    //이벤트 리스트 툴바 부분 12.07 구영모 추가
     private fun setToolBar(){
         setSupportActionBar(event_toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)

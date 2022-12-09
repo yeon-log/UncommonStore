@@ -43,7 +43,7 @@ class EventDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
         setToolBar()
     }
-    //이 부분 부터 툴바 부분
+    //이벤트 상세 페이지 툴바 부분 12.08 구영모 추가
     private fun setToolBar(){
         setSupportActionBar(event_detail_toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
@@ -52,7 +52,7 @@ class EventDetailActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        menuInflater.inflate(R.menu.toolbar_home, menu)
         return super.onCreateOptionsMenu(menu)
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -61,9 +61,6 @@ class EventDetailActivity : AppCompatActivity() {
             android.R.id.home->{ // 메뉴 버튼
                 finish()
                 return super.onOptionsItemSelected(item)
-            }
-            R.id.action_search->{
-                Log.d("이거는 구현이가","알아서 하겠지")
             }
             R.id.action_home->{
                 val intent = Intent(this, MainActivity::class.java)

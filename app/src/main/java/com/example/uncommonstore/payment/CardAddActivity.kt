@@ -67,7 +67,7 @@ class CardAddActivity : AppCompatActivity() {
         }
     }
 
-    //이 부분 부터 툴바 부분
+    //카트 추가 툴바 부분 12.09 구영모 추가
     private fun setToolBar(){
         setSupportActionBar(card_add_toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
@@ -76,7 +76,7 @@ class CardAddActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        menuInflater.inflate(R.menu.toolbar_home, menu)
         return super.onCreateOptionsMenu(menu)
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -86,9 +86,7 @@ class CardAddActivity : AppCompatActivity() {
                 finish()
                 return super.onOptionsItemSelected(item)
             }
-            R.id.action_search->{
-                Log.d("이거는 구현이가","알아서 하겠지")
-            }
+
             R.id.action_home->{
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
@@ -97,4 +95,5 @@ class CardAddActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
     //툴바 부분 끝
+
 }

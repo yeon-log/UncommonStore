@@ -18,6 +18,12 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.ktx.Firebase
 
+/*****************************************************
+ * @function : AuthActivity
+ * @author : 구영모
+ * @Date : 2022.12.04 생성
+ *****************************************************/
+
 class AuthActivity : AppCompatActivity() {
     lateinit var binding: ActivityAuthBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -189,7 +195,6 @@ class AuthActivity : AppCompatActivity() {
             startActivity(intent)
         }else if(mode === "logout"){//로그아웃 했을때 -> 로그인 화면
             binding.run {
-//                authMainTextView.text = "로그인 화면 테스트"
                 logoutBtn.visibility = View.GONE
                 logoImage.visibility = View.VISIBLE
                 goSignInBtn.visibility = View.VISIBLE

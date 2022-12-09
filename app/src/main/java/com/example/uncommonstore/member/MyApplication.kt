@@ -4,7 +4,11 @@ import androidx.multidex.MultiDexApplication
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-
+/*****************************************************
+ * @function : MyApplication
+ * @author : 구영모
+ * @Date : 2022.12.04
+ *****************************************************/
 class MyApplication: MultiDexApplication() {
     companion object {
         lateinit var auth: FirebaseAuth

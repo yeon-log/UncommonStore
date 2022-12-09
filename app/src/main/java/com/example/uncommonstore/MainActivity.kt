@@ -19,6 +19,7 @@ import com.example.uncommonstore.QRCodeReader.QrReaderActivity
 import com.example.uncommonstore.databinding.ActivityMainBinding
 import com.example.uncommonstore.event.EventListActivity
 import com.example.uncommonstore.faq.FaqActivity
+import com.example.uncommonstore.instruction.InstructionActivity
 import com.example.uncommonstore.member.AuthActivity
 import com.example.uncommonstore.member.MyApplication
 import com.example.uncommonstore.payment.CardActivity
@@ -30,7 +31,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_navheader.view.*
 
 
-
+/*****************************************************
+ * @function : MainActivity
+ * @author : 구영모, 김나형
+ * @Date : 2022.12.02 생성
+ *****************************************************/
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private var isNavigationOpen = false
 
@@ -161,7 +166,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    // 툴바 사용 설정
+    // 툴바 사용 설정 구영모 추가
     private fun setToolbar(){
         setSupportActionBar(toolbar)
 
@@ -188,7 +193,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(intent)
             }
             R.id.action_info->{
-                //미구현 이용방법 인텐트로 추가 예정
+                val intent = Intent(this, InstructionActivity::class.java)
+                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)
@@ -198,7 +204,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     //왼쪽의 메뉴를 클릭했을 때 나타나는 이벤트들 입니다
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){  // 네비게이션 메뉴가 클릭되면 스낵바가 나타난다.
-            //qr코드 입장 미구현
             R.id.qrcodeIn->{
                 val intent = Intent(this, QRCreateActivity::class.java)
                 startActivity(intent)
@@ -236,8 +241,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(intent)
                 finish()
             }
-            R.id.action_info->{
-                //미구현 이용방법 인텐트로 추가 예정
+            R.id.how_to_use->{
+                val intent = Intent(this, InstructionActivity::class.java)
+                startActivity(intent)
             }
         }
         drawerLayout.closeDrawers() // 기능을 수행하고 네비게이션을 닫아준다.
@@ -258,4 +264,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             Toast.makeText(baseContext, "한번 더 누르면 종료 될까요", Toast.LENGTH_SHORT).show()
         }
     }
+    //툴바 네비게이션바 관련 끝
 }
