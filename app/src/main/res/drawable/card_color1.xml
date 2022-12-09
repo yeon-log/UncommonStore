@@ -6,6 +6,4 @@
         android:startColor="@color/cherry_red"
         android:endColor="#F37498"/>
         <!--android:endColor="#F37498"/>-->
-
-
 </shape>

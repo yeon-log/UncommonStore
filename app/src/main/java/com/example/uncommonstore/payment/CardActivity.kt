@@ -33,11 +33,10 @@ class CardActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_card)
 
         binding = ActivityCardBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
+        setContentView(binding.root)
         db = AppDatabase.getInstance(this)!!
         cardDao = db.CardDao()
 
@@ -84,6 +83,11 @@ class CardActivity : AppCompatActivity() {
                     db?.CardDao()?.deleteCard(del)
                     println("코루틴으로 삭제..? 됨네까?????? 아오오롥 제발ㄹ요오오ㅗㅠㅠㅠ")
                 }
+
+                //22.12.09 정구현 삭제 재로딩
+                val intent = Intent(this, CardActivity::class.java)
+                finish()
+                startActivity(intent)
             }
             // 취소 버튼 누를 시는 아무 행동 하지 않음
             builder.setNegativeButton("취소") { _, _ ->
@@ -92,6 +96,7 @@ class CardActivity : AppCompatActivity() {
         }
         pageSetting()
         setToolBar()
+
     }
 
     private fun pageSetting() {
@@ -177,5 +182,11 @@ class CardActivity : AppCompatActivity() {
                 mPager.adapter = pagerAdapter
             }
         }.start()
+    }
+
+    // 22.12.09 정구현 추가
+    override fun onRestart() {
+        super.onRestart()
+        getAllCardList()
     }
 }
