@@ -9,6 +9,7 @@
     tools:context=".SplashActivity">
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="413dp"
         android:layout_height="198dp"
         android:layout_gravity="center"
@@ -18,7 +19,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.233"
-        app:srcCompat="@drawable/start_image"
-        tools:ignore="MissingConstraints" />
+        app:srcCompat="@drawable/start_image"/>
+
+    <TextView
+        android:layout_width="124dp"
+        android:layout_height="31dp"
+        android:gravity="bottom"
+        android:text="The Hyundai 2022"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.818"></TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

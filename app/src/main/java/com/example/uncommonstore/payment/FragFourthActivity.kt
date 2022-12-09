@@ -23,7 +23,7 @@ class FragFourthActivity(var card: CardEntity?) : Fragment() {
             tv_cardName4.visibility = View.VISIBLE
             tv_cardName_empty4.visibility = View.INVISIBLE
         } else {
-            tv_cardName_empty4.text = "카드를 등록해주세요"
+            tv_cardName_empty4.text = "" // 빈문자열로
         }
         return view
     }

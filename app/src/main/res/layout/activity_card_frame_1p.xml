@@ -14,15 +14,16 @@
             android:id="@+id/imgBanner1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#ffcccc"
+            android:background="#5C975F"
             android:contentDescription="@string/app_name" />
 
         <TextView
             android:id="@+id/tv_card_name1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="70dp"
-            android:gravity="center"
+            android:layout_margin="20dp"
+            android:textSize="40dp"
+            android:gravity="left"
             android:visibility="invisible"/>
 
         <TextView

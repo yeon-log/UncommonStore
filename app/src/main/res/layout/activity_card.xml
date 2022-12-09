@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".payment.CardActivity">
+    tools:context=".payment.CardActivity"
+    android:background="@color/background_gray">
 
     <!--툴바 부분시작-->
     <androidx.appcompat.widget.Toolbar
@@ -33,38 +34,25 @@
     </androidx.appcompat.widget.Toolbar>
     <!--툴바 부분 끝-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:orientation="vertical">
-
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
             android:text="언커먼스토어"
             android:textAlignment="center"
             android:textColor="@color/cherry_red"
-            android:textStyle="italic"></TextView>
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"></TextView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:text="입장시 자동결제를 위해 카드등록이 필요합니다."
-            android:textAlignment="center"
-            android:textColor="@color/font_black"></TextView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:text="언커먼 스토어 이용을 위한\n 자동결제 카드를 선택해주세요.(글자크기 및 개구린 UI 수정할 것)"
-
-            android:textAlignment="center"
-            android:textColor="@color/font_black"
-            android:textStyle="bold"></TextView>
-    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="입장시 자동결제를 위해 카드등록이 필요합니다."
+        android:textAlignment="center"
+        android:textStyle="bold"></TextView>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -101,12 +89,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.017"
-            tools:ignore="MissingConstraints"></Button>
+            tools:ignore="MissingConstraints"
+            android:backgroundTint="@color/font_gray"></Button>
 
         <Button
             android:id="@+id/btn_payment_register"
             android:layout_width="match_parent"
             android:layout_height="55dp"
+            android:backgroundTint="@color/cherry_red"
             android:text="자동결제 카드 등록"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -115,6 +105,17 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_payment_termination"
             app:layout_constraintVertical_bias="0.931"
             tools:ignore="MissingConstraints"></Button>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:text="언커먼 스토어 이용을 위한\n 자동결제 카드를 선택해주세요."
+            android:textAlignment="center"
+            android:textColor="@color/font_black"
+            app:layout_constraintBottom_toTopOf="@+id/btn_payment_register"
+            app:layout_constraintTop_toBottomOf="@+id/btn_payment_termination"
+            tools:layout_editor_absoluteX="0dp"></TextView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

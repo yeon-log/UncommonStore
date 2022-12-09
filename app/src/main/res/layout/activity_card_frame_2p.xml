@@ -14,7 +14,7 @@
             android:id="@+id/imgBanner2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#afe3ff"
+            android:background="#5B8EAA"
             android:contentDescription="@string/app_name" />
 
         <TextView

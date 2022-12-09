@@ -27,7 +27,7 @@ class FragFirstActivity(var card : CardEntity?): Fragment() {
             tv_cardName_empty1.visibility = View.INVISIBLE
         }
         else{
-            tv_cardName_empty1.text = "카드를 등록해주세요"
+            tv_cardName_empty1.text = "" // 빈문자열로
         }
         return view
     }

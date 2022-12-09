@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:background="#aaff88"
+            android:background="#ffcccc"
             android:contentDescription="@string/app_name" />
 
         <TextView
