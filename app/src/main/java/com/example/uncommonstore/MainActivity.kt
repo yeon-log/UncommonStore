@@ -237,6 +237,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.logout->{
                 MyApplication.auth.signOut()
                 MyApplication.email = null
+                MyApplication.name = null
+                Firebase.auth.signOut()
                 val intent = Intent(this, AuthActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -261,7 +263,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             drawerLayout.closeDrawers()
         }else{
             Log.d("뒤로가기 버튼","비 활성화")
-            Toast.makeText(baseContext, "한번 더 누르면 종료 될까요", Toast.LENGTH_SHORT).show()
+            Toast.makeText(baseContext, "한번 더 누르면 종료 됩니다", Toast.LENGTH_SHORT).show()
         }
     }
     //툴바 네비게이션바 관련 끝

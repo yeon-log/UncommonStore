@@ -11,6 +11,7 @@ import com.example.uncommonstore.MainActivity
 import com.example.uncommonstore.R
 import com.example.uncommonstore.databinding.ActivityAuthBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.GoogleAuthProvider
@@ -42,6 +43,7 @@ class AuthActivity : AppCompatActivity() {
         {
             //구글 로그인 결과 처리...........................
             val task = GoogleSignIn.getSignedInAccountFromIntent(it.data)
+
             try {
                 val account = task.getResult(ApiException::class.java)!!
                 val credential = GoogleAuthProvider.getCredential(account.idToken, null)
@@ -50,7 +52,8 @@ class AuthActivity : AppCompatActivity() {
                         if(task.isSuccessful){
                             MyApplication.email = account.email
                             //추가
-                            MyApplication.name = account.givenName
+                            Log.d("login",account.displayName.toString())
+
                             changeVisibility("login")
                         }else {
                             changeVisibility("logout")
@@ -65,6 +68,7 @@ class AuthActivity : AppCompatActivity() {
             //로그아웃...........
             MyApplication.auth.signOut()
             MyApplication.email = null
+            Firebase.auth.signOut()
             changeVisibility("logout")
         }
 
