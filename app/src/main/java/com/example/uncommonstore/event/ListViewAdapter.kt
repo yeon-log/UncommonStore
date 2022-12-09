@@ -19,6 +19,7 @@ class ListViewAdapter(private val eventList : ArrayList<EventEntity>)
             Glide.with(context)
                 .load(event.eventImage)
                 .into(binding.imageTitle)
+
             binding.eventTitle.text = event.eventName.toString()
 
 

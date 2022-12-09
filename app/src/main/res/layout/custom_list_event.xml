@@ -17,7 +17,7 @@
         android:id="@+id/event_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="제목이 들어갈거에요"
+        android:text="제목"
         android:textSize="15dp"
         android:textColor="@color/font_black"
         android:textStyle="bold"
