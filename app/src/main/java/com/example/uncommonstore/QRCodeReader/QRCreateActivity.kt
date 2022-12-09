@@ -10,13 +10,19 @@ import android.widget.TextView
 import com.example.uncommonstore.MainActivity
 import com.example.uncommonstore.R
 import com.example.uncommonstore.databinding.ActivityQrcreateBinding
+import com.example.uncommonstore.db.AppDatabase
+import com.example.uncommonstore.member.MyApplication
+import com.example.uncommonstore.product.db.ProductDao
+import com.example.uncommonstore.product.db.ProductEntity
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.qrcode.QRCodeWriter
 import kotlinx.android.synthetic.main.activity_add_card.*
 import kotlinx.coroutines.Dispatchers.Main
+import kotlin.random.Random
 
 class QRCreateActivity : AppCompatActivity() {
     lateinit var qrcreateBinding: ActivityQrcreateBinding
+    val random = (1..15000).random()
     private val remainMinutesTextView: TextView by lazy {
         findViewById(R.id.remainMinutesTextView)
     }
@@ -35,10 +41,10 @@ class QRCreateActivity : AppCompatActivity() {
     }
 
     fun createQRCode(){
-
         val qrCode = QRCodeWriter()
         val bitMtx = qrCode.encode(
-            intent.getStringExtra("msg") ?: "데이터가 존재하지 않습니다",
+            //qr코드데이터 : 현재로그인한정보 + 랜덤변수(1~20){qr코드 시각적인 차이를 주기위해서}
+            "${MyApplication.email}"+ random.toString(),
             BarcodeFormat.QR_CODE,
             350,
             350
