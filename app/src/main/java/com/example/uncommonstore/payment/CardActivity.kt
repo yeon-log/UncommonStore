@@ -73,7 +73,6 @@ class CardActivity : AppCompatActivity() {
 
             // 확인 버튼 누를 시 db 에서 해당 카드 정보 삭제하고 toast 메시지로 삭제 여부 알리기
             builder.setPositiveButton("확인") { dialog, which ->
-                binding.btnPaymentTermination.text = "선택된 항목: ${itemList?.get(checkedItemIndex)}"
                 /* val del_item = itemList?.get(checkedItemIndex) */
                 //cardDao.deleteCard(itemList?.get(checkedItemIndex))
 
@@ -161,6 +160,8 @@ class CardActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     } // 툴바 부분 끝
 
+    // room db에 들어가있는 card 정보 만큼 보여주기
+    // 정보가 있다면 카드이름을 넣어줄 것
     private fun getAllCardList() {
         Thread {
             println("after: " + cards.size)

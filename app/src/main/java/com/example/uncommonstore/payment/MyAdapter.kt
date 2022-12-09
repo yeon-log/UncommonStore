@@ -3,10 +3,6 @@ package com.example.uncommonstore.payment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.uncommonstore.payment.FragFirstActivity
-import com.example.uncommonstore.payment.FragFourthActivity
-import com.example.uncommonstore.payment.FragSecondActivity
-import com.example.uncommonstore.payment.FragThirdActivity
 import com.example.uncommonstore.payment.db.CardEntity
 
 class MyAdapter(fa: FragmentActivity?, var mCount: Int, var cards:MutableList<CardEntity?>) : FragmentStateAdapter(
