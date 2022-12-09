@@ -14,7 +14,7 @@
             android:id="@+id/imgBanner1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#5C975F"
+            android:background="@drawable/card_color1"
             android:contentDescription="@string/app_name" />
 
         <TextView
@@ -22,8 +22,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="20dp"
-            android:textSize="40dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:gravity="left"
+            android:text="카드이름"
+            android:textColor="@color/white"
             android:visibility="invisible"/>
 
         <TextView
