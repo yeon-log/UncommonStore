@@ -23,9 +23,9 @@ class QrReaderResultActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         val result = intent.getStringExtra("msg") ?: "데이터가 존재하지 않습니다."
-        println(result.toString())
+        //println(result.toString())
         Log.d("logintest","이것은 테스트입니다.")
-        setUI(result)// UI를 초기화 합니다.
+        //setUI(result)// UI를 초기화 합니다.
 
         db = AppDatabase.getInstance(this)!!
         val r = Runnable {

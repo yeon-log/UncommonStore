@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.uncommonstore.MainActivity
 import com.example.uncommonstore.R
 import com.example.uncommonstore.databinding.ActivityProductListBinding
 import com.example.uncommonstore.db.AppDatabase
@@ -80,8 +81,8 @@ class ProductListActivity : AppCompatActivity()    {
         // 클릭된 메뉴 아이템의 아이디 마다 when 구절로 클릭시 동작을 설정한다.
         when(item.itemId){
             android.R.id.home->{ // 뒤로 가기 버튼을 눌렀을 때
-                finish()
-                return super.onOptionsItemSelected(item)
+                val intentSearch = Intent(this@ProductListActivity, MainActivity::class.java)
+                startActivity(intentSearch)
             }
             R.id.action_search->{ // 검색버튼 눌렀을때
                 val intentSearch = Intent(this@ProductListActivity, ProductSearchActivity::class.java)

@@ -213,8 +213,8 @@ class ProductDetailActivity : AppCompatActivity() {
         // 클릭된 메뉴 아이템의 아이디 마다 when 구절로 클릭시 동작을 설정한다.
         when(item.itemId){
             android.R.id.home->{ // 메뉴 버튼
-                finish()
-                return super.onOptionsItemSelected(item)
+                val intentSearch = Intent(this@ProductDetailActivity, ProductListActivity::class.java)
+                startActivity(intentSearch)
             }
             R.id.action_search->{ // 검색버튼 눌렀을때
                 val intentSearch = Intent(this@ProductDetailActivity, ProductSearchActivity::class.java)
