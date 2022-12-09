@@ -22,10 +22,10 @@
         app:srcCompat="@drawable/start_image"/>
 
     <TextView
-        android:layout_width="124dp"
-        android:layout_height="31dp"
-        android:gravity="bottom"
-        android:text="The Hyundai 2022"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="The Hyundai\n2022"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

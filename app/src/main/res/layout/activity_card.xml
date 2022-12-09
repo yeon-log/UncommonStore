@@ -42,7 +42,7 @@
             android:textAlignment="center"
             android:textColor="@color/cherry_red"
             android:textStyle="bold"
-            android:textSize="20dp"
+            android:textSize="25dp"
             android:layout_marginTop="20dp"></TextView>
 
 
@@ -92,19 +92,23 @@
             tools:ignore="MissingConstraints"
             android:backgroundTint="@color/font_gray"></Button>
 
-        <Button
+        <android.widget.Button
             android:id="@+id/btn_payment_register"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:backgroundTint="@color/cherry_red"
+            android:layout_height="60dp"
+            android:background="@drawable/button_color"
             android:text="자동결제 카드 등록"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_payment_termination"
-            app:layout_constraintVertical_bias="0.931"
-            tools:ignore="MissingConstraints"></Button>
+            app:layout_constraintVertical_bias="1.0"
+            android:layout_gravity="bottom"/>
+
 
         <TextView
             android:layout_width="match_parent"
@@ -115,6 +119,7 @@
             android:textColor="@color/font_black"
             app:layout_constraintBottom_toTopOf="@+id/btn_payment_register"
             app:layout_constraintTop_toBottomOf="@+id/btn_payment_termination"
+            app:layout_constraintVertical_bias="0.848"
             tools:layout_editor_absoluteX="0dp"></TextView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

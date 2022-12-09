@@ -130,10 +130,15 @@ private val PRODUCT_DATA = arrayListOf(
                 "https://user-images.githubusercontent.com/70796139/206526359-4ea8d9b9-52fb-4a6b-847a-7aeaa8511fe2.jpg," +
                 "https://user-images.githubusercontent.com/70796139/206526367-4915537c-3b91-43d4-a4c4-9423bbaf08ae.jpg",
         "최고심 사랑의 토끼!"),
-    /*ProductEntity(null, "", ",000",10,
-        "",
-        "",
-        ""),
+    ProductEntity(null, "[망그러진 곰] [마우스패드]  귀여운 캐릭터 휴대용 마우스패드\n", ",000",10,
+        "https://user-images.githubupsercontent.com/70796139/206614042-f268dca0-945d-46b1-a4ee-7574e6a400bb.jpg," +
+                "https://user-images.githubusercontent.com/70796139/206614209-09ce541d-0dc0-4711-bb98-f8dedffb0f68.png," +
+                "https://user-images.githubusercontent.com/70796139/206614221-6bdbd7a0-4672-4fcc-b66b-03ebd0bd0229.png",
+        "https://user-images.githubusercontent.com/70796139/206614324-1a3be79a-d6b8-4508-bcfe-afcd84e865fb.png," +
+                "https://user-images.githubupsercontent.com/70796139/206614042-f268dca0-945d-46b1-a4ee-7574e6a400bb.jpg," +
+                "https://user-images.githubusercontent.com/70796139/206614374-1981ae51-a92a-4c14-837c-16c3ffb6d5d8.png" +
+                "https://user-images.githubusercontent.com/70796139/206614394-33cb94f1-1dd0-40c9-9995-2b00bfa7625b.png",
+        "망그러진 곰 햄터 캐릭터 마우스 패드 2종\n"),
     ProductEntity(null, "", ",000",10,
         "",
         "",
@@ -185,7 +190,7 @@ private val PRODUCT_DATA = arrayListOf(
     ProductEntity(null, "", ",000",10,
         "",
         "",
-        "")*/
+        "")
     )
 
 // 2022.12.05 김나형 추가 : Event 기본 데이터 세팅
