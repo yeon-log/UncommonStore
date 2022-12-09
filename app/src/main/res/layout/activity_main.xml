@@ -67,16 +67,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="30dp"
                     android:text="서비스 바로가기"
                     android:textStyle="bold"
-                    android:textSize="20dp"/>
+                    android:textSize="18dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
                     android:orientation="horizontal">
 
@@ -93,7 +93,8 @@
                             android:layout_weight="1"
                             app:srcCompat="@drawable/product"
                             android:scaleType="fitCenter"
-                            android:background="@android:color/transparent" />
+                            android:background="@android:color/transparent"
+                            app:tint="@color/font_black" />
 
                         <TextView
                             android:id="@+id/textView3"
@@ -119,7 +120,8 @@
                             android:layout_weight="1"
                             app:srcCompat="@drawable/card"
                             android:scaleType="fitCenter"
-                            android:background="@android:color/transparent" />
+                            android:background="@android:color/transparent"
+                            app:tint="@color/font_black"/>
 
                         <TextView
                             android:id="@+id/textView4"
@@ -144,7 +146,8 @@
                             android:layout_weight="1"
                             app:srcCompat="@drawable/event"
                             android:scaleType="fitCenter"
-                            android:background="@android:color/transparent" />
+                            android:background="@android:color/transparent"
+                            app:tint="@color/font_black"/>
 
                         <TextView
                             android:id="@+id/textView5"
@@ -169,7 +172,8 @@
                             android:layout_weight="1"
                             app:srcCompat="@drawable/faq"
                             android:scaleType="fitCenter"
-                            android:background="@android:color/transparent" />
+                            android:background="@android:color/transparent"
+                            app:tint="@color/font_black"/>
 
                         <TextView
                             android:id="@+id/textView6"
@@ -182,14 +186,15 @@
                             android:textSize="16dp"/>
                     </LinearLayout>
                 </LinearLayout>
-                <Button
+                <android.widget.Button
                     android:id="@+id/mainEnter"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:backgroundTint="@color/cherry_red"
+                    android:background="@drawable/button_color"
                     android:text="입장하기"
                     android:textSize="20dp"
                     android:textStyle="bold"
+                    android:textColor="@color/white"
                     android:layout_gravity="bottom"/>
 
             </LinearLayout>
