@@ -7,7 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.uncommonstore.R
-
+/*****************************************************
+ * @function : ProductOneFragment
+ * @author : 정구현
+ * @Date : 2022.12.07 생성
+ *****************************************************/
 class ProductOneFragment(var thumbnail : String) : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

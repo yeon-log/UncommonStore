@@ -15,7 +15,11 @@ import com.example.uncommonstore.product.ProductDetailActivity
 import com.example.uncommonstore.product.ProductRecyclerViewAdapter
 import com.example.uncommonstore.product.db.ProductDao
 import com.example.uncommonstore.product.db.ProductEntity
-
+/*****************************************************
+ * @function : ProductEntity
+ * @author : 정구현
+ * @Date : 2022.12.08 생성
+ *****************************************************/
 class ProductSearchActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProductSearchBinding
     private lateinit var db : AppDatabase

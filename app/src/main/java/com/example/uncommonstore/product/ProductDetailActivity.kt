@@ -28,9 +28,14 @@ import com.example.uncommonstore.product.pager.ProductTwoFragment
 import com.example.uncommonstore.product.pager.ViewPagerAdapter
 import com.example.uncommonstore.product.search.ProductSearchActivity
 import kotlinx.android.synthetic.main.activity_product_detail.*
-
+/*****************************************************
+ * @function : ProductDetailActivity
+ * @author : 정구현
+ * @Date : 2022.12.06 생성
+ *****************************************************/
 class ProductDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProductDetailBinding
+    //썸네일 ViewPager2 적용을 위한 Fragement 요소
     private lateinit var bindingFragmentOne : ActivityProductOneFragmentBinding
     private lateinit var bindingFragmentTwo : ActivityProductTwoFragmentBinding
     private lateinit var bindingFragmentThree : ActivityProductThreeFragmentBinding
@@ -41,7 +46,7 @@ class ProductDetailActivity : AppCompatActivity() {
     private lateinit var productList: ArrayList<ProductEntity>
     private lateinit var adapter: ProductRecyclerViewAdapter
 
-    // 텍스트뷰 -> 화면 위치 표시
+    // ViewPager2 인디케이터
     private var dots = arrayOfNulls<TextView>(3)
 
 
@@ -51,14 +56,17 @@ class ProductDetailActivity : AppCompatActivity() {
         bindingFragmentTwo = ActivityProductTwoFragmentBinding.inflate(layoutInflater)
         bindingFragmentThree = ActivityProductThreeFragmentBinding.inflate(layoutInflater)
 
+        //ProductListActivity로부터 전송받은 객체 초기화
         val productData = intent.getSerializableExtra("product") as ProductEntity
         val context = binding.root.context
+        //DB 상 이미지들을 구분자를 이용하여 배열로 초기화
         val prodThumbnails = productData.prodThumbnail.toString().split(",")
         val prodImages = productData.prodImage.toString().split(",")
 
         db = AppDatabase.getInstance(this)!!
         productDao = db.ProductDao()
 
+        //추천상품 함수
         getRecommendProductList()
 
         //재고확인 버튼
@@ -86,6 +94,7 @@ class ProductDetailActivity : AppCompatActivity() {
 
         // 화면 위치 표시 생성
         dotsIndicator()
+
         // 화면 변경 시 이벤트 설정
         binding.pagerProductThumbnail.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
             // Circular Scrolling 기능을 구현하기 위한 현재 상태와 위치 저장할 변수 2개 선언
@@ -116,12 +125,12 @@ class ProductDetailActivity : AppCompatActivity() {
         })
 
 
+        binding.productName.text = productData.prodName.toString() //상품 이름
+        binding.productPrice.text = productData.prodPrice.toString() +"원" //상품 가격
+        binding.productStock.text = "남은 수량: " + productData.prodStock.toString() + " 개" // 재고
+        binding.productContent.text = productData.prodContent.toString() //상품 설명
 
-        binding.productName.text = productData.prodName.toString()
-        binding.productPrice.text = productData.prodPrice.toString() +"원"
-        binding.productStock.text = "남은 수량: " + productData.prodStock.toString() + " 개"
-        binding.productContent.text = productData.prodContent.toString()
-
+        //상품 내용 이미지
         Glide.with(context)
             .load(prodImages[0])
             .into(binding.imgProductContent1)
@@ -142,13 +151,15 @@ class ProductDetailActivity : AppCompatActivity() {
         setToolBar()
     }
 
-    //추천 상품 리스트 함수 (랜덤으로 6개 반환)
+    //추천 상품 리스트 함수 (랜덤으로 6개씩 반환)
     private fun getRecommendProductList(){
         Thread{
             productList = ArrayList(productDao.getProductRandomList())
             setRecyclerView()
         }.start()
     }
+
+    //추천 상품 리스트를 위한 RecyclerVIew
     private fun setRecyclerView() {
         runOnUiThread {
             adapter = ProductRecyclerViewAdapter(productList)

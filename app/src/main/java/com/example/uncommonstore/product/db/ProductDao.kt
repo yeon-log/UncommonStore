@@ -3,6 +3,11 @@ package com.example.uncommonstore.product.db
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+/*****************************************************
+ * @function : ProductDao
+ * @author : 정구현
+ * @Date : 2022.12.05 생성
+ *****************************************************/
 
 @Dao
 interface ProductDao {

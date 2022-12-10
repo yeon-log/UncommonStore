@@ -8,7 +8,11 @@ import com.bumptech.glide.Glide
 import com.example.uncommonstore.databinding.ItemProductBinding
 import com.example.uncommonstore.product.db.ProductEntity
 
-
+/*****************************************************
+ * @function : ProductRecyclerViewAdapter
+ * @author : 정구현
+ * @Date : 2022.12.05 생성
+ *****************************************************/
 
 class ProductRecyclerViewAdapter(private val productList: ArrayList<ProductEntity>)
     : RecyclerView.Adapter<ProductRecyclerViewAdapter.MyViewHolder>(){

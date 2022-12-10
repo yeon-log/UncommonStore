@@ -14,7 +14,11 @@ import com.example.uncommonstore.product.db.ProductEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-
+/*****************************************************
+ * @function : ProductEntity
+ * @author : 정구현(Room DB 연결, Product), 김나형(Event), 심지연(Card)
+ * @Date : 2022.12.04 생성
+ *****************************************************/
 @Database(entities = arrayOf(ProductEntity::class, EventEntity::class, CardEntity::class), version = 1)
 abstract class AppDatabase : RoomDatabase(){
     //2022.12.04 정구현 추가 : 상품 테이블 추가
@@ -50,7 +54,7 @@ abstract class AppDatabase : RoomDatabase(){
 
             return appDatabase
         }
-        // 2022.12.04 정구현 추가 : Product 기본 데이터 추가 함수
+        // 2022.12.04 정구현 추가 : Product 샘플 데이터 추가 함수
         fun fillInDb(context: Context){
             CoroutineScope(Dispatchers.IO).launch {
                 getInstance(context)!!.ProductDao().insertProduct(
@@ -59,7 +63,7 @@ abstract class AppDatabase : RoomDatabase(){
             }
         }
 
-        // 2022.12.05 김나형 추가 : Event 기본 데이터 추가 함수
+        // 2022.12.05 김나형 추가 : Event 샘플 데이터 추가 함수
         fun fillInEventDb(context: Context){
             CoroutineScope(Dispatchers.IO).launch {
                 getInstance(context)!!.EventDao().insertEvent(
