@@ -9,6 +9,12 @@ import androidx.fragment.app.Fragment
 import com.example.uncommonstore.R
 import com.example.uncommonstore.payment.db.CardEntity
 
+/*****************************************************
+ * @function : FragThirdActivity
+ * @author : 심지연
+ * @Date : 2022.12.06 생성
+ *****************************************************/
+
 class FragThirdActivity(var card: CardEntity?) : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

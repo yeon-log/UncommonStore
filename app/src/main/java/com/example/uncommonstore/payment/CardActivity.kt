@@ -20,6 +20,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import me.relex.circleindicator.CircleIndicator3
 
+/*****************************************************
+ * @function : CardActivity
+ * @author : 심지연
+ * @Date : 2022.12.05 생성
+ *****************************************************/
+
 class CardActivity : AppCompatActivity() {
 
     private lateinit var db: AppDatabase
@@ -59,7 +65,7 @@ class CardActivity : AppCompatActivity() {
             }
 
             // null 이 아닌 카드만 라디오 버튼 보여주기
-            // 코틀린 문법 Null 로 된 값을 생성하고 싶을 경우 arrayOfNulls 사용 => 이거 못찾아서 계속 null 체크못했었음 소브렝
+            // 코틀린 문법 Null 로 된 값을 생성하고 싶을 경우 arrayOfNulls 사용
             val itemList = arrayOfNulls<String>(cnt)
             for(i in 0 until cnt){
                 itemList[i] = cards[i]?.cardName.toString()
@@ -72,16 +78,12 @@ class CardActivity : AppCompatActivity() {
 
             // 확인 버튼 누를 시 db 에서 해당 카드 정보 삭제하고 toast 메시지로 삭제 여부 알리기
             builder.setPositiveButton("확인") { dialog, which ->
-                /* val del_item = itemList?.get(checkedItemIndex) */
-                //cardDao.deleteCard(itemList?.get(checkedItemIndex))
-
                 // 안드로이드는 데이터베이스 쿼리가 메인스레드를 점유할것을 염려해서
                 // 메인스레드가 아닌 다른 스레드에서 쿼리를 실행하라고 에러남!!!
                 // 그래서 코루틴으로 삭제하기 => Context Switching 시간도 줄일 수 있음
                val del = itemList?.get(checkedItemIndex)
                 CoroutineScope(Dispatchers.IO).launch {
                     db?.CardDao()?.deleteCard(del)
-                    println("코루틴으로 삭제..? 됨네까?????? 아오오롥 제발ㄹ요오오ㅗㅠㅠㅠ")
                 }
 
                 //22.12.09 정구현 삭제 재로딩
@@ -124,7 +126,6 @@ class CardActivity : AppCompatActivity() {
                     mPager.currentItem = position
                 }
             }
-
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 mIndicator.animatePageSelected(position % num_page)

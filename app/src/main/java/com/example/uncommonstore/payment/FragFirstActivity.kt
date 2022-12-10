@@ -12,6 +12,12 @@ import kotlinx.android.synthetic.main.activity_add_card.view.*
 import kotlinx.android.synthetic.main.activity_card_frame_1p.*
 import javax.annotation.Nullable
 
+/*****************************************************
+ * @function : FragFirstActivity
+ * @author : 심지연
+ * @Date : 2022.12.06 생성
+ *****************************************************/
+
 class FragFirstActivity(var card : CardEntity?): Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
