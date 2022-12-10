@@ -7,7 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-
+/*****************************************************
+ * @function : MainThreeFragment
+ * @author : 김나형
+ * @Date : 2022.12.07 생성
+ *****************************************************/
 class MainThreeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

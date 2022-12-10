@@ -109,7 +109,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 super.onPageScrollStateChanged(state)
             }
         })
-        //mainbindig.dotsIndicator.setViewPager2(mainbinding.mainViewPager2)
 
         // 서비스 바로가기 연결
         mainbinding.productBtn.setOnClickListener{

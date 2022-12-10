@@ -14,7 +14,11 @@ import com.example.uncommonstore.databinding.ActivityEventDetailBinding
 import com.example.uncommonstore.db.AppDatabase
 import com.example.uncommonstore.event.db.EventEntity
 import kotlinx.android.synthetic.main.activity_event_detail.*
-
+/*****************************************************
+ * @function : EventDetailActivity
+ * @author : 김나형
+ * @Date : 2022.12.06 생성
+ *****************************************************/
 class EventDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEventDetailBinding
     private lateinit var db: AppDatabase
@@ -26,7 +30,7 @@ class EventDetailActivity : AppCompatActivity() {
         val eventData = intent.getSerializableExtra("event") as EventEntity
         val context = binding.root.context
 
-        println("제목"+eventData.eventName.toString())
+        // roomDB에 있는 데이터를 layout에 넣어주기
         binding.tvEventTitle.text = eventData.eventName.toString()
         binding.tvEventContent.text = eventData.eventContent.toString()
         Glide.with(context)

@@ -18,7 +18,11 @@ import com.example.uncommonstore.event.db.EventEntity
 import kotlinx.android.synthetic.main.activity_event_list.*
 import kotlinx.android.synthetic.main.activity_main.*
 
-
+/*****************************************************
+ * @function : EventListActivity
+ * @author : 김나형
+ * @Date : 2022.12.05 생성
+ *****************************************************/
 class EventListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEventListBinding
 

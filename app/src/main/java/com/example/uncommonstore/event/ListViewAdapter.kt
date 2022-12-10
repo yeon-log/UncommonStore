@@ -8,7 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.uncommonstore.databinding.CustomListEventBinding
 import com.example.uncommonstore.event.db.EventEntity
 
-
+/*****************************************************
+ * @function : ListViewAdapter
+ * @author : 김나형
+ * @Date : 2022.12.05 생성
+ *****************************************************/
 class ListViewAdapter(private val eventList : ArrayList<EventEntity>)
     : RecyclerView.Adapter<ListViewAdapter.MyViewHolder>(){
     inner class MyViewHolder(private val binding : CustomListEventBinding):

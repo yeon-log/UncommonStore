@@ -4,7 +4,11 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.io.Serializable
-
+/*****************************************************
+ * @function : EventEntity
+ * @author : 김나형
+ * @Date : 2022.12.06 생성
+ *****************************************************/
 @Entity(tableName = "event")
 data class EventEntity(
     @PrimaryKey(autoGenerate = true) var eventId: Int? = null,
