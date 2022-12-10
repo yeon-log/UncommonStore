@@ -7,6 +7,12 @@ import android.os.Handler
 import android.os.Looper
 import com.example.uncommonstore.member.AuthActivity
 
+/*****************************************************
+ * @function : SplashActivity
+ * @author : 심지연
+ * @Date : 2022.12.02 생성
+ *****************************************************/
+
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
