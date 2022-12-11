@@ -27,9 +27,9 @@
                 android:id="@+id/MainTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Uncommon Store"
+                android:text="UNCOMMON STORE"
                 android:textStyle="bold"
-                android:textSize="24dp"
+                android:textSize="20dp"
                 android:textColor="@color/cherry_red"
                 android:layout_gravity="center"
                 />
