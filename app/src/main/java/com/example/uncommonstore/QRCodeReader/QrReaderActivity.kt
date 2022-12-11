@@ -16,7 +16,11 @@ import com.example.uncommonstore.databinding.ActivityQrReaderBinding
 import com.google.common.util.concurrent.ListenableFuture
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-
+/*****************************************************
+ * @function : QrReaderActivity(QR리더기)
+ * @author : 김민석
+ * @Date : 2022.12.07 생성
+ *****************************************************/
 class QrReaderActivity : AppCompatActivity() {
     private lateinit var binding: ActivityQrReaderBinding   //바인딩 변수 생성
     private lateinit var cameraProviderFuture : ListenableFuture<ProcessCameraProvider>
@@ -59,7 +63,7 @@ class QrReaderActivity : AppCompatActivity() {
         requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
-        // ❶에서 requestPermissions의 인수로 넣은 PERMISSIONS_REQUEST_CODE와 맞는지 확인을 합니다.
+        // requestPermissions의 인수로 넣은 PERMISSIONS_REQUEST_CODE와 맞는지 확인을 합니다.
         if (requestCode == PERMISSIONS_REQUEST_CODE) {
             if (PackageManager.PERMISSION_GRANTED == grantResults.firstOrNull()) {
                 Toast.makeText(this@QrReaderActivity, "권한 요청이 승인되었습니다.", Toast.LENGTH_LONG).show()
@@ -78,10 +82,10 @@ class QrReaderActivity : AppCompatActivity() {
             val cameraProvider = cameraProviderFuture.get()
 
             val preview = getPreview()
-            val imageAnalysis = getImageAnalysis() // ❷
+            val imageAnalysis = getImageAnalysis()
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
-            cameraProvider.bindToLifecycle(this, cameraSelector,preview, imageAnalysis) // ❸
+            cameraProvider.bindToLifecycle(this, cameraSelector,preview, imageAnalysis)
 
         }, ContextCompat.getMainExecutor(this))
     }

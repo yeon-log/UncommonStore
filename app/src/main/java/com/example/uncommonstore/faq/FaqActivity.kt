@@ -8,7 +8,11 @@ import com.example.uncommonstore.R
 import com.example.uncommonstore.databinding.ActivityFaqBinding
 import kotlinx.android.synthetic.main.activity_event_list.*
 import kotlinx.android.synthetic.main.activity_faq.*
-
+/*****************************************************
+ * @function : FaqActivity(FAQ)
+ * @author : 김민석
+ * @Date : 2022.12.06 생성
+ *****************************************************/
 class FaqActivity : AppCompatActivity() {
     // https://www.geeksforgeeks.org/how-to-create-expandable-recyclerview-items-in-android-using-kotlin/ 사이트 소스를 수정
 

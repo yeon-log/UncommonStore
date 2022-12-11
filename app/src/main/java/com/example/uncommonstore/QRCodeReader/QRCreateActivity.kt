@@ -19,7 +19,11 @@ import com.google.zxing.qrcode.QRCodeWriter
 import kotlinx.android.synthetic.main.activity_add_card.*
 import kotlinx.coroutines.Dispatchers.Main
 import kotlin.random.Random
-
+/*****************************************************
+ * @function : QRCreateActivity(QR생성)
+ * @author : 김민석
+ * @Date : 2022.12.08 생성
+ *****************************************************/
 class QRCreateActivity : AppCompatActivity() {
     lateinit var qrcreateBinding: ActivityQrcreateBinding
     val random = (1..15000).random()
@@ -49,6 +53,7 @@ class QRCreateActivity : AppCompatActivity() {
             350,
             350
         )
+        //qrcode를 bitmap형식으로 뿌려줌
         val bitmap: Bitmap = Bitmap.createBitmap(bitMtx.width, bitMtx.height, Bitmap.Config.RGB_565)
         for(i in 0 .. bitMtx.width-1){
             for(j in 0 .. bitMtx.height-1){

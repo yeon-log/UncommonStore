@@ -9,7 +9,11 @@ import com.example.uncommonstore.db.AppDatabase
 import com.example.uncommonstore.product.ProductDetailActivity
 import com.example.uncommonstore.product.db.ProductDao
 import com.example.uncommonstore.product.db.ProductEntity
-
+/*****************************************************
+ * @function : QrReaderResultActivity(QR코드스캔 후 상품상세페이지로 이동)
+ * @author : 김민석
+ * @Date : 2022.12.07 생성
+ *****************************************************/
 class QrReaderResultActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityQrReaderResultBinding
@@ -40,9 +44,6 @@ class QrReaderResultActivity : AppCompatActivity() {
         }
         val thread = Thread(r)
         thread.start()
-
-
-
     }
     private fun setUI(result: String) {
         binding.tvContent.text = result // 넘어온 QR 코드 속 데이터를 텍스트뷰에 설정합니다.

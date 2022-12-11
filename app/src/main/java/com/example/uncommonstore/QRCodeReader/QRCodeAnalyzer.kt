@@ -5,8 +5,12 @@ import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
-
-class QRCodeAnalyzer(val onDetectListener: OnDetectListener)  : ImageAnalysis.Analyzer{ // ❶
+/*****************************************************
+ * @function : QRCodeAnalyzer(Detecting 구현 class)
+ * @author : 김민석
+ * @Date : 2022.12.07 생성
+ *****************************************************/
+class QRCodeAnalyzer(val onDetectListener: OnDetectListener)  : ImageAnalysis.Analyzer{
 
     private val scanner = BarcodeScanning.getClient()
 
