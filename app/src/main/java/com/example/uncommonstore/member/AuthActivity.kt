@@ -11,7 +11,6 @@ import com.example.uncommonstore.MainActivity
 import com.example.uncommonstore.R
 import com.example.uncommonstore.databinding.ActivityAuthBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.GoogleAuthProvider

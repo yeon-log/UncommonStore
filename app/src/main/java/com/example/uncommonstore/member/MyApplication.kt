@@ -12,21 +12,22 @@ import com.google.firebase.ktx.Firebase
 class MyApplication: MultiDexApplication() {
     companion object {
         lateinit var auth: FirebaseAuth
-        var email: String? = null
-        var name: String? = null
-        fun checkAuth(): Boolean {
+        var email: String? = null //회원 이메일
+        var name: String? = null //회원 이름
+        fun checkAuth(): Boolean { //회원의 권한이 생성되었는지 확인하는 메소드
             var currentUser = auth.currentUser
             return currentUser?.let {
-                email = currentUser.email //이메일
-                name = currentUser.displayName //이름
-                currentUser.isEmailVerified
+                email = currentUser.email //회원 이메일
+                name = currentUser.displayName //회원 이름
+                currentUser.isEmailVerified //이메일이 인증되었는지 확인
             } ?: let {
                 false
             }
         }
     }
     override fun onCreate() {
-        super.onCreate()
-        auth = Firebase.auth
+        super.onCreate() //어플이 시작되었을 때
+        auth = Firebase.auth //계정 인증을 위한 auth객체 생성
     }
 }
+

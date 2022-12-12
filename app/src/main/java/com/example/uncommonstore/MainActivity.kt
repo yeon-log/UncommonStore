@@ -38,7 +38,7 @@ import kotlinx.android.synthetic.main.main_navheader.view.*
  *****************************************************/
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private var isNavigationOpen = false
-
+    private var backPressedTime: Long = 0
     lateinit var mainbinding: ActivityMainBinding
     // 텍스트뷰 -> 화면 위치 표시
     private var dots = arrayOfNulls<TextView>(3)
@@ -205,33 +205,27 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when(item.itemId){  // 네비게이션 메뉴가 클릭되면 스낵바가 나타난다.
             R.id.qrcodeIn->{
                 val intent = Intent(this, QRCreateActivity::class.java)
-                startActivity(intent)
-            }
+                startActivity(intent) }
             //qr상품 검색
             R.id.qrcodeSearch->{
                 val intent = Intent(this, QrReaderActivity::class.java)
-                startActivity(intent)
-            }
+                startActivity(intent) }
             //상품
             R.id.product->{
                 val intent = Intent(this, ProductListActivity::class.java)
-                startActivity(intent)
-            }
+                startActivity(intent) }
             //결제수단관리
             R.id.payment->{
                 val intent = Intent(this, CardActivity::class.java)
-                startActivity(intent)
-            }
+                startActivity(intent) }
             //이벤트
             R.id.event->{
                 val intent = Intent(this, EventListActivity::class.java)
-                startActivity(intent)
-            }
+                startActivity(intent) }
             //자주묻는질문
             R.id.faq->{
                 val intent = Intent(this, FaqActivity::class.java)
-                startActivity(intent)
-            }
+                startActivity(intent) }
             //로그아웃
             R.id.logout->{
                 MyApplication.auth.signOut()
@@ -240,29 +234,33 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 Firebase.auth.signOut()
                 val intent = Intent(this, AuthActivity::class.java)
                 startActivity(intent)
-                finish()
-            }
+                finish() }
             R.id.instruction->{
                 val intent = Intent(this, InstructionActivity::class.java)
-                startActivity(intent)
-            }
+                startActivity(intent) }
         }
         drawerLayout.closeDrawers() // 기능을 수행하고 네비게이션을 닫아준다.
         return false
     }
-
     /*
      * 뒤로가기 버튼으로 네비게이션 닫기
      *
      * 네비게이션 드로어가 열려 있을 때 뒤로가기 버튼을 누르면 네비게이션을 닫고,
-     * 닫혀 있다면 기존 뒤로가기 버튼으로 작동한다.
+     * 닫혀 있다면 뒤로가기 버튼을 2초내에 2번 누르면 나갈 수 있도록 작동한다.
      */
     override fun onBackPressed() {
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawers()
         }else{
-            Log.d("뒤로가기 버튼","비 활성화")
-            Toast.makeText(baseContext, "한번 더 누르면 종료 됩니다", Toast.LENGTH_SHORT).show()
+            if(backPressedTime + 2000 > System.currentTimeMillis()){
+                super.onBackPressed()
+                finishAffinity()
+            }
+            else{
+                Toast.makeText(applicationContext,"한번 더 뒤로가기 버튼을 누르면 종료됩니다.",
+                    Toast.LENGTH_SHORT).show()
+            }
+            backPressedTime = System.currentTimeMillis()
         }
     }
     //툴바 네비게이션바 관련 끝
