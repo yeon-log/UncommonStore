@@ -44,6 +44,7 @@ abstract class AppDatabase : RoomDatabase(){
                     ).addCallback(object : RoomDatabase.Callback(){
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             super.onCreate(db)
+                            //2022.12.04 정구현 추가 : 상품 샘플 데이터 추가
                             fillInDb(context.applicationContext)
                             // 2022.12.05 김나형 추가 : event 데이터 추가
                             fillInEventDb(context.applicationContext)

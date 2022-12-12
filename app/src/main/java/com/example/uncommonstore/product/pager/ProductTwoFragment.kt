@@ -19,7 +19,7 @@ class ProductTwoFragment(var thumbnail : String) : Fragment() {
     ): View? {
         var view = inflater.inflate(R.layout.activity_product_two_fragment, container, false)
 
-        Glide.with(view.context)
+        Glide.with(view.context)//썸네일 이미지
             .load(thumbnail)
             .into(view.findViewById(R.id.img_product_thumbnail))
 

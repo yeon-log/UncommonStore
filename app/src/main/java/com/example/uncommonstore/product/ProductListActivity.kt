@@ -34,11 +34,6 @@ class ProductListActivity : AppCompatActivity()    {
 
         setContentView(binding.root)
 
-        binding.btnAdd.setOnClickListener{
-            val intent = Intent(this, ProductAddActivity::class.java)
-            startActivity(intent)
-        }
-
         db = AppDatabase.getInstance(this)!!
 
         productDao = db.ProductDao()

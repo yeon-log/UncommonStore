@@ -45,7 +45,7 @@ class ProductSearchActivity : AppCompatActivity() {
             // 검색 버튼 누를 때 호출
             override fun onQueryTextSubmit(word: String?): Boolean {
                 if (word != null) {
-                    search(word)
+                    search(word)    //검색 함수 실행
                 }
                 return true
             }
@@ -53,7 +53,7 @@ class ProductSearchActivity : AppCompatActivity() {
             override fun onQueryTextChange(word: String?): Boolean {
                 // 검색창에서 글자가 변경이 일어날 때마다 호출
                 if(word != null){
-                    search(word)
+                    search(word)//검색 함수 실행
                 }
                 return true
             }
@@ -65,7 +65,7 @@ class ProductSearchActivity : AppCompatActivity() {
         //검색어
         val searchWord = "$word"
         Thread {
-            productList = productDao.getProductSearch(searchWord) as ArrayList<ProductEntity>
+            productList = productDao.getProductSearch(searchWord) as ArrayList<ProductEntity>   //검색어를 쿼리에 넣기
             if(productList.size==0){
                 runOnUiThread {
                     binding.tvNoResult.visibility = View.VISIBLE
@@ -96,6 +96,7 @@ class ProductSearchActivity : AppCompatActivity() {
             //상품 상세페이지로 이동
             adapter.setOnItemClickListener(object : ProductRecyclerViewAdapter.OnItemClickListener{
                 override fun onItemClick(v: View, product: ProductEntity, pos : Int) {
+                    //상세페이지로 선택한 객체 전송
                     Intent(this@ProductSearchActivity, ProductDetailActivity::class.java).apply {
                         putExtra("product", product)
                         addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
