@@ -44,11 +44,22 @@ class QRCreateActivity : AppCompatActivity() {
         startCountDown()
     }
 
+    //랜덤 문자열 생성
+    fun getRandomString(length: Int) : String {
+        val charset = ('a'..'z') + ('A'..'Z') + ('0'..'9')
+        return (1..length)
+            .map { charset.random() }
+            .joinToString("")
+    }
+
+    //qr코드 생성
     fun createQRCode(){
+        val length = 10
+        val randomString = getRandomString(length)
         val qrCode = QRCodeWriter()
         val bitMtx = qrCode.encode(
             //qr코드데이터 : 현재로그인한정보 + 랜덤변수(1~20){qr코드 시각적인 차이를 주기위해서}
-            "${MyApplication.email}"+ random.toString(),
+            "${MyApplication.email}" + random.toString() + randomString,
             BarcodeFormat.QR_CODE,
             350,
             350
